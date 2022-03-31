@@ -1,1 +1,1 @@
-Sitemap: https://fastpages.fast.ai/sitemap.xml
+Sitemap: https://maxdragonheart.github.io/PyGIS-Blog/sitemap.xml
