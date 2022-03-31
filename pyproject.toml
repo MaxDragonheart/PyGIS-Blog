@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "BlogGIS"
+version = "0.0.1"
+description = "Qui riproduco in Python alcune delle analisi di dati che ho affrontato nei miei articoli"
+authors = ["MaxDragonheart <info@massimilianomoraca.it>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Shapely = "^1.8.1"
+geopandas = "^0.10.2"
+rioxarray = "^0.10.2"
+rasterio = "^1.2.10"
+
+[tool.poetry.dev-dependencies]
+jupyter = "^1.0.0"
+folium = "^0.12.1"
+matplotlib = "^3.5.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
