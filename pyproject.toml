@@ -9,6 +9,8 @@ python = "^3.8"
 Shapely = "^1.8.1"
 geopandas = "^0.10.2"
 rasterio = "^1.2.10"
+xarray-spatial = "^0.3.3"
+rioxarray = "^0.10.3"
 
 [tool.poetry.dev-dependencies]
 jupyter = "^1.0.0"
