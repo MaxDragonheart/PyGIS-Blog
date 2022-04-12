@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "PyGIS Blog"
 version = "0.0.1"
-description = "Qui riproduco in Python alcune delle analisi di dati che ho affrontato nei miei articoli"
+description = "Qui riproduco in Python alcune delle analisi di dati che ho affrontato nei miei articoli e non solo!"
 authors = ["MaxDragonheart <info@massimilianomoraca.it>"]
 
 [tool.poetry.dependencies]
