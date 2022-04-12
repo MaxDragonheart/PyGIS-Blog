@@ -7,7 +7,7 @@
 
 
 # PyGIS Blog
-In questo spazio riproduco in Python alcune delle analisi di dati che ho affrontato nei miei [articoli](https://massimilianomoraca.it/blog/gis-dev/).
+In questo spazio riproduco in Python alcune delle analisi di dati che ho affrontato nei miei [articoli](https://massimilianomoraca.it/blog/gis-dev/) e non solo!
 
 Le analisi in Python pubblicate le trovi [qui](https://MaxDragonheart.github.io/PyGIS-Blog/).
 
