@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://maxdragonheart.github.io/PyGIS-Blog/point/2022/03/31/da-point-a-pointz.html</loc>
+<loc>pygisblog.massimilianomoraca.me/point/2022/03/31/da-point-a-pointz.html</loc>
 <lastmod>2022-03-31T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://maxdragonheart.github.io/PyGIS-Blog/point/raster/2022/04/07/analisi-di-visibilita.html</loc>
+<loc>pygisblog.massimilianomoraca.me/point/raster/2022/04/07/analisi-di-visibilita.html</loc>
 <lastmod>2022-04-07T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://maxdragonheart.github.io/PyGIS-Blog/point/2022/04/18/tagliare-una-linea-con-un-punto.html</loc>
+<loc>pygisblog.massimilianomoraca.me/point/2022/04/18/tagliare-una-linea-con-un-punto.html</loc>
 <lastmod>2022-04-18T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://maxdragonheart.github.io/PyGIS-Blog/about/</loc>
+<loc>pygisblog.massimilianomoraca.me/about/</loc>
 </url>
 <url>
-<loc>https://maxdragonheart.github.io/PyGIS-Blog/</loc>
+<loc>pygisblog.massimilianomoraca.me/</loc>
 </url>
 <url>
-<loc>https://maxdragonheart.github.io/PyGIS-Blog/search/</loc>
+<loc>pygisblog.massimilianomoraca.me/search/</loc>
 </url>
 <url>
-<loc>https://maxdragonheart.github.io/PyGIS-Blog/categories/</loc>
+<loc>pygisblog.massimilianomoraca.me/categories/</loc>
 </url>
 </urlset>
