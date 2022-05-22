@@ -11,6 +11,7 @@ geopandas = "^0.10.2"
 rasterio = "^1.2.10"
 xarray-spatial = "^0.3.3"
 rioxarray = "^0.10.3"
+contextily = "^1.2.0"
 
 [tool.poetry.dev-dependencies]
 jupyter = "^1.0.0"
