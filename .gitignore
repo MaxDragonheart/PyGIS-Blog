@@ -145,6 +145,3 @@ dmypy.json
 
 # IDE
 .idea
-
-# Poetry
-poetry.lock
