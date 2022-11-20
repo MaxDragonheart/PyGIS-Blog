@@ -1,0 +1,1 @@
+Sitemap: https://MaxDragonheart.github.io/PyGIS-Blog/sitemap.xml
