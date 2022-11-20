@@ -3,11 +3,17 @@ project:
   output-dir: docs
 
 website:
-  title: "PyGIS Blog - by Massimiliano Moraca"
+  title: "PyGIS Blog"
   reader-mode: true
   # site-url: "https://pygisblog.massimilianomoraca.me"
+  favicon: ./site_logo.png
+  google-analytics: G-NG119N5L8N
+  open-graph:
+    title: "PyGIS Blog"
+    description: "Manipolare i dati GIS con Python!"
+    image: ./project_logo.jpg
   navbar:
-    logo: ./posts/images/logo.jpg
+    logo: ./site_logo.png
     pinned: true
     collapsed: true
     right:

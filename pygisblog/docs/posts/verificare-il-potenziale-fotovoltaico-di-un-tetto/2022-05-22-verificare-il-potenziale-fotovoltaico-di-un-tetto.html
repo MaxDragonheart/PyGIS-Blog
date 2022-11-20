@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-05-22">
 <meta name="description" content="Usando un software GIS è possibile stimare se un tetto è o meno idoneo per un impianto fotovoltaico. E’ possibile fare la stessa cosa in Python? Te lo dico qui!">
 
-<title>Verificare il potenziale fotovoltaico di un tetto</title>
+<title>PyGIS Blog - by Massimiliano Moraca - Verificare il potenziale fotovoltaico di un tetto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,12 +88,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../https://massimilianomoraca.it/static/images/logo.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -112,15 +111,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "type": "overlay",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-no-results-text": "Nessun risultato",
+    "search-matching-documents-text": "documenti trovati",
+    "search-copy-link-title": "Copiare il link nella ricerca",
+    "search-hide-matches-text": "Nascondere i risultati aggiuntivi",
+    "search-more-match-text": "ci sono altri risultati in questo documento",
+    "search-more-matches-text": "ulteriori risultati in questo documento",
+    "search-clear-button-title": "Pulire",
+    "search-detached-cancel-button-title": "Cancellare",
+    "search-submit-button-title": "Inviare"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
@@ -141,6 +140,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     <img src="../.././posts/images/logo.jpg" alt="" class="navbar-logo">
     </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">PyGIS Blog - by Massimiliano Moraca</span>
+    </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -158,6 +160,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://massimilianomoraca.it"><i class="bi bi-website" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -195,9 +202,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
       
       <div>
-      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 22, 2022</p>
+        <p class="date">22 maggio 2022</p>
       </div>
     </div>
     
@@ -210,7 +217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">In questa pagina</h2>
    
   <ul>
   <li><a href="#prima-di-iniziare" id="toc-prima-di-iniziare" class="nav-link active" data-scroll-target="#prima-di-iniziare">Prima di iniziare</a>
@@ -262,14 +269,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Per raggiungere l’obiettivo userò le librerie che seguono:</p>
 <div class="cell" data-execution_count="1">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pathlib</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rioxarray <span class="im">as</span> rxr</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> contextily <span class="im">as</span> cx</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> xrspatial.aspect <span class="im">import</span> aspect</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> xrspatial.slope <span class="im">import</span> slope</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> xrspatial.slope <span class="im">import</span> slope</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -277,10 +284,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="fonti-dati">Fonti dati</h3>
 <div class="cell" data-execution_count="2">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sample_data <span class="op">=</span> pathlib.Path.cwd().parent.joinpath(<span class="st">'sample_data/photovoltaic_potential_analysis'</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dsm <span class="op">=</span> sample_data.joinpath(<span class="st">'dsm.tif'</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>buildings <span class="op">=</span> sample_data.joinpath(<span class="st">'buildings_footprint.shp'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>buildings <span class="op">=</span> sample_data.joinpath(<span class="st">'buildings_footprint.shp'</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -289,9 +296,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>1. Lettura dei dati</h1>
 <div class="cell" data-execution_count="3">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>raster <span class="op">=</span> rxr.open_rasterio(dsm, masked<span class="op">=</span><span class="va">True</span>).squeeze()</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>raster</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>raster</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="3">
 
@@ -663,9 +670,9 @@ Attributes:
 </div>
 <div class="cell" data-execution_count="4">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>vector <span class="op">=</span> gpd.read_file(buildings)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>vector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>vector</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="4">
 
@@ -817,14 +824,14 @@ Attributes:
 <h2 class="anchored" data-anchor-id="visualizzazione-dei-dati-grezzi">1.1 Visualizzazione dei dati grezzi</h2>
 <div class="cell" data-execution_count="5">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>raster.plot.imshow(</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'Blues'</span>,</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"DSM"</span>)</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Y coordinates (meters)"</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
@@ -835,10 +842,10 @@ Attributes:
 </div>
 <div class="cell" data-execution_count="6">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>aoi <span class="op">=</span> vector.plot(alpha<span class="op">=</span><span class="fl">0.75</span>, color<span class="op">=</span><span class="st">"blue"</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>cx.add_basemap(aoi, crs<span class="op">=</span>vector.crs.to_string(), source<span class="op">=</span>cx.providers.OpenStreetMap.Mapnik)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>aoi.set_title(<span class="st">"Area of Interest"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>aoi.set_title(<span class="st">"Area of Interest"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>Text(0.5, 1.0, 'Area of Interest')</code></pre>
@@ -854,7 +861,7 @@ Attributes:
 <p>Come primo passo in questa analisi estrarrò dal DSM i soli edifici.</p>
 <div class="cell" data-execution_count="7">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>raster_clipped <span class="op">=</span> raster.rio.clip(</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    geometries<span class="op">=</span>vector.geometry, crs<span class="op">=</span>raster.rio.crs, all_touched<span class="op">=</span><span class="va">True</span>, drop<span class="op">=</span><span class="va">True</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>).squeeze()</span>
@@ -866,7 +873,7 @@ Attributes:
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"DEM of buildings footprint"</span>)</span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Y coordinates (meters)"</span>)</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
@@ -878,7 +885,7 @@ Attributes:
 <p>A questo punto posso concentrarmi solo sui tetti calcolando la loro pendenza.</p>
 <div class="cell" data-execution_count="8">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>rooftop_slope <span class="op">=</span> slope(raster_clipped)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
@@ -889,7 +896,7 @@ Attributes:
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Rooftop's slope"</span>)</span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Y coordinates (meters)"</span>)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
@@ -906,7 +913,7 @@ Attributes:
 <h2 class="anchored" data-anchor-id="tetti-piani">2.1 Tetti piani</h2>
 <div class="cell" data-execution_count="9">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>plane_rooftop <span class="op">=</span> rooftop_slope.where(rooftop_slope <span class="op">&lt;=</span> <span class="dv">3</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
@@ -917,7 +924,7 @@ Attributes:
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Plane rooftops"</span>)</span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Y coordinates (meters)"</span>)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
@@ -931,7 +938,7 @@ Attributes:
 <h2 class="anchored" data-anchor-id="tetti-con-inclinazione-ottimale">2.2 Tetti con inclinazione ottimale</h2>
 <div class="cell" data-execution_count="10">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>optimum_rooftop_inclination <span class="op">=</span> rooftop_slope.where((rooftop_slope <span class="op">&gt;</span> <span class="dv">3</span>) <span class="op">&amp;</span> (rooftop_slope <span class="op">&lt;=</span> <span class="dv">40</span>))</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
@@ -942,7 +949,7 @@ Attributes:
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Rooftops with slope between 3° and 40°"</span>)</span>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Y coordinates (meters)"</span>)</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
@@ -959,7 +966,7 @@ Attributes:
 <p>Per il discorso lagato alla resa migliore in fase di produzione di energia, anche l’orientamento del tetto è un fattore chiave. Per un tetto piano è insignificante parlare di esposizione, concetto che diventa fondamentale per un tetto inclinato. Anche qui ci sono soluzioni tecniche che possono risolvere problemi di esposizione ma, come scritto poco sopra, non è questo il luogo per approfondire questi aspetti.</p>
 <div class="cell" data-execution_count="11">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>rooftop_aspect <span class="op">=</span> aspect(raster_clipped)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
@@ -969,7 +976,7 @@ Attributes:
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Rooftop's aspect"</span>)</span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Y coordinates (meters)"</span>)</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
@@ -984,7 +991,7 @@ Attributes:
 <h2 class="anchored" data-anchor-id="tetti-esposti-a-sud">3.1 Tetti esposti a SUD</h2>
 <div class="cell" data-execution_count="12">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sud_rooftop_aspect <span class="op">=</span> rooftop_aspect.where((rooftop_aspect <span class="op">&gt;=</span> <span class="dv">135</span>) <span class="op">&amp;</span> (rooftop_aspect <span class="op">&lt;=</span> <span class="dv">225</span>))</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
@@ -994,7 +1001,7 @@ Attributes:
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Rooftops facing to SUD"</span>)</span>
 <span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Y coordinates (meters)"</span>)</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
@@ -1008,7 +1015,7 @@ Attributes:
 <h2 class="anchored" data-anchor-id="tetti-esposti-ad-est">3.2 Tetti esposti ad EST</h2>
 <div class="cell" data-execution_count="13">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>est_rooftop_aspect <span class="op">=</span> rooftop_aspect.where((rooftop_aspect <span class="op">&gt;=</span> <span class="dv">90</span>) <span class="op">&amp;</span> (rooftop_aspect <span class="op">&lt;</span> <span class="dv">135</span>))</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
@@ -1018,7 +1025,7 @@ Attributes:
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Rooftops facing to EST"</span>)</span>
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Y coordinates (meters)"</span>)</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
@@ -1032,7 +1039,7 @@ Attributes:
 <h2 class="anchored" data-anchor-id="tetti-esposti-ad-ovest">3.2 Tetti esposti ad OVEST</h2>
 <div class="cell" data-execution_count="14">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>ovest_rooftop_aspect <span class="op">=</span> rooftop_aspect.where((rooftop_aspect <span class="op">&gt;</span> <span class="dv">225</span>) <span class="op">&amp;</span> (rooftop_aspect <span class="op">&lt;=</span> <span class="dv">270</span>))</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
@@ -1042,7 +1049,7 @@ Attributes:
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Rooftops facing to OVEST"</span>)</span>
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Y coordinates (meters)"</span>)</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"X coordinates (meters)"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
@@ -1060,7 +1067,7 @@ Attributes:
 <h2 class="anchored" data-anchor-id="put-them-all-togheter">4.1 Put them all togheter</h2>
 <div class="cell" data-execution_count="15">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>target_slope_rooftop <span class="op">=</span> rooftop_slope.where(rooftop_slope <span class="op">&lt;=</span> <span class="dv">40</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>))</span>
@@ -1076,7 +1083,7 @@ Attributes:
 <span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span>colormap.<span class="bu">reversed</span>(),</span>
 <span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axs[<span class="dv">1</span>]</span>
 <span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(<span class="st">"Rooftop's slope"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(<span class="st">"Rooftop's slope"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>Text(0.5, 1.0, "Rooftop's slope")</code></pre>
@@ -1087,7 +1094,7 @@ Attributes:
 </div>
 <div class="cell" data-execution_count="16">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>target_aspect_rooftop <span class="op">=</span> rooftop_aspect.where((rooftop_aspect <span class="op">&gt;=</span> <span class="dv">90</span>) <span class="op">&amp;</span> (rooftop_aspect <span class="op">&lt;=</span> <span class="dv">270</span>))</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>))</span>
@@ -1102,7 +1109,7 @@ Attributes:
 <span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'Set2'</span>,</span>
 <span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axs[<span class="dv">1</span>]</span>
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(<span class="st">"Rooftop's aspect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(<span class="st">"Rooftop's aspect"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>Text(0.5, 1.0, "Rooftop's aspect")</code></pre>
@@ -1116,7 +1123,7 @@ Attributes:
 <h2 class="anchored" data-anchor-id="individuazione-dei-tetti-con-pendenza-ed-esposizione-ottimali">4.2 Individuazione dei tetti con pendenza ed esposizione ottimali</h2>
 <div class="cell" data-execution_count="17">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>target_slope_rooftop_mask <span class="op">=</span> ((target_slope_rooftop <span class="op">/</span> target_slope_rooftop) <span class="op">&gt;=</span> <span class="dv">1</span>).astype(<span class="st">'uint8'</span>)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>target_aspect_rooftop_mask <span class="op">=</span> ((target_aspect_rooftop <span class="op">/</span> target_aspect_rooftop) <span class="op">&gt;=</span> <span class="dv">1</span>).astype(<span class="st">'uint8'</span>)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1133,7 +1140,7 @@ Attributes:
 <span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"gray"</span>,</span>
 <span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axs[<span class="dv">1</span>]</span>
 <span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(<span class="st">"Target rooftops based on aspect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">1</span>].set_title(<span class="st">"Target rooftops based on aspect"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>Text(0.5, 1.0, 'Target rooftops based on aspect')</code></pre>
@@ -1144,7 +1151,7 @@ Attributes:
 </div>
 <div class="cell" data-execution_count="18">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>target_rooftop <span class="op">=</span> target_slope_rooftop_mask <span class="op">*</span> target_aspect_rooftop_mask</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
@@ -1152,7 +1159,7 @@ Attributes:
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>target_rooftop.plot.imshow(</span>
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'gray'</span>,</span>
 <span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Target rooftops"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Target rooftops"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>Text(0.5, 1.0, 'Target rooftops')</code></pre>
@@ -1168,11 +1175,11 @@ Attributes:
 <p>Il primo passo da seguire è convertire il <code>DataArray</code> creato in precedenza in un <code>DataFrame</code>.</p>
 <div class="cell" data-execution_count="19">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>target_rooftop_df <span class="op">=</span> target_rooftop.to_dataframe(name<span class="op">=</span><span class="st">"value"</span>).reset_index()</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>target_rooftop_df <span class="op">=</span> target_rooftop_df[target_rooftop_df[<span class="st">'value'</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>target_rooftop_df <span class="op">=</span> target_rooftop_df[[<span class="st">'x'</span>, <span class="st">'y'</span>, <span class="st">'value'</span>]]</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>target_rooftop_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>target_rooftop_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="19">
 
@@ -1263,13 +1270,13 @@ Attributes:
 <p>In questo modo si è ottenuto un oggetto che contiene i centroidi dei pixel del raster precedente, con i soli valori di interesse. Il passo successivo è convertire in <code>GeoDataFrame</code> il dataset ottenuto in precedenza.</p>
 <div class="cell" data-execution_count="20">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>gdf_point <span class="op">=</span> gpd.GeoDataFrame(</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    target_rooftop_df.value,</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    geometry<span class="op">=</span>gpd.points_from_xy(target_rooftop_df.x,target_rooftop_df.y),</span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    crs<span class="op">=</span>raster.rio.crs.to_string()</span>
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>gdf_point</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>gdf_point</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="20">
 
@@ -1348,9 +1355,9 @@ Attributes:
 <p>Si è ottenuto un GeoDataFrame di punti, ma a me interessano i poligoni, quindi creo un buffer intorno ai punti in modo da riprodurre i pixel del raster con cui ho iniziato l’analisi. Quindi devo andare ad individuare la risoluzione del mio raster di partenza:</p>
 <div class="cell" data-execution_count="21">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> raster.rio.resolution()</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Il raster di partenza ha una risoluzione di </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> x </span><span class="sc">{</span>y<span class="op">*-</span><span class="dv">1</span><span class="sc">}</span><span class="ss"> metri"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Il raster di partenza ha una risoluzione di </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> x </span><span class="sc">{</span>y<span class="op">*-</span><span class="dv">1</span><span class="sc">}</span><span class="ss"> metri"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Il raster di partenza ha una risoluzione di 1.0 x 1.0 metri</code></pre>
@@ -1359,13 +1366,13 @@ Attributes:
 <p>Ora posso creare i miei poligoni.</p>
 <div class="cell" data-execution_count="22">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>gdf_polygon <span class="op">=</span> gdf_point.<span class="bu">buffer</span>(distance<span class="op">=</span><span class="fl">0.5</span>, cap_style<span class="op">=</span><span class="dv">3</span>)</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>polygons <span class="op">=</span> gdf_polygon.unary_union</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> gpd.GeoDataFrame(geometry<span class="op">=</span>gpd.GeoSeries(polygons), crs<span class="op">=</span>gdf_polygon.crs).explode(index_parts<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>gdf.insert(loc<span class="op">=</span><span class="dv">1</span>, column<span class="op">=</span><span class="st">"superficie_mq"</span>, value<span class="op">=</span>gdf.geometry.area)</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>gdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>gdf</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="22">
 
@@ -1446,11 +1453,11 @@ Attributes:
 <p>Ho ottenuto un GeoDataFrame con i dati di mio interesse. Quando scrissi l’articolo del <a href="https://massimilianomoraca.it/blog/gis/fotovoltaico-e-gis-come-individuare-lutilizzabilita-di-un-tetto/">blog</a>, oramai 6 annifa, 1 kwp occupava 7 metri quadri; non conosco i risvolti del mercato attuale ma ricordo che con la minuaturizzazione si andava verso la riduzione della superficie utile per produrre 1 kwp. Anche per questo articolo mi atterrò al dato del 2018 ma, prima di calcolare la produzione potenziale di energia dell’are in esame, andrò a filtrare tutto ciò che è inferiore a 7 metri quadri.</p>
 <div class="cell" data-execution_count="23">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>final_analysis <span class="op">=</span> gdf[gdf.superficie_mq <span class="op">&gt;=</span> <span class="dv">7</span>].reset_index()</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>final_analysis <span class="op">=</span> final_analysis[[<span class="st">'geometry'</span>, <span class="st">'superficie_mq'</span>]]</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>final_analysis.insert(loc<span class="op">=</span><span class="dv">2</span>, column<span class="op">=</span><span class="st">"potential_production_kw"</span>, value<span class="op">=</span>final_analysis.superficie_mq<span class="op">*</span><span class="dv">7</span>)</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>final_analysis</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>final_analysis</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="23">
 
@@ -1540,12 +1547,12 @@ Attributes:
 </div>
 <div class="cell" data-execution_count="24">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>final_view <span class="op">=</span> final_analysis.plot(column<span class="op">=</span><span class="st">"potential_production_kw"</span>, cmap<span class="op">=</span><span class="st">"gnuplot"</span>, ax<span class="op">=</span>ax, legend<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>cx.add_basemap(final_view, crs<span class="op">=</span>final_analysis.crs.to_string(), source<span class="op">=</span>cx.providers.OpenStreetMap.Mapnik)</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>final_view.set_title(<span class="st">"Energy production map KWP"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>final_view.set_title(<span class="st">"Energy production map KWP"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>Text(0.5, 1.0, 'Energy production map KWP')</code></pre>
@@ -1619,12 +1626,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copiato!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copiato!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -1715,7 +1722,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">Copyright 2022, Massimiliano Moraca</div>
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/massimilianomoraca">LinkedIn</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/MaxDragonheart">Github</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-right">Copyright 2022, Massimiliano Moraca</div>
   </div>
 </footer>
 
