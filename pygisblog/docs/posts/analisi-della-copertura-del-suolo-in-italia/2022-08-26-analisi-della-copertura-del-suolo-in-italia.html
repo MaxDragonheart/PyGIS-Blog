@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-26">
 <meta name="description" content="Vediamo come è cambiata la copertura del suolo in Italia dal 1990 al 2018 usando i dati della CORINE Land Cover.">
 
-<title>PyGIS Blog - Analisi della copertura del suolo in Italia dal 1990 al 2018 usando la CORINE Land Cover</title>
+<title>PyGIS Blog - by Massimiliano Moraca - Analisi della copertura del suolo in Italia dal 1990 al 2018 usando la CORINE Land Cover</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,7 +88,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
@@ -100,10 +98,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -112,15 +110,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "type": "overlay",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-no-results-text": "Nessun risultato",
+    "search-matching-documents-text": "documenti trovati",
+    "search-copy-link-title": "Copiare il link nella ricerca",
+    "search-hide-matches-text": "Nascondere i risultati aggiuntivi",
+    "search-more-match-text": "ci sono altri risultati in questo documento",
+    "search-more-matches-text": "ulteriori risultati in questo documento",
+    "search-clear-button-title": "Pulire",
+    "search-detached-cancel-button-title": "Cancellare",
+    "search-submit-button-title": "Inviare"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
@@ -138,8 +136,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../.././posts/images/logo.jpg" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">PyGIS Blog</span>
+    <span class="navbar-title">PyGIS Blog - by Massimiliano Moraca</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -158,6 +159,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://massimilianomoraca.it"><i class="bi bi-website" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -196,9 +202,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
       
       <div>
-      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">August 26, 2022</p>
+        <p class="date">26 agosto 2022</p>
       </div>
     </div>
     
@@ -211,7 +217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">In questa pagina</h2>
    
   <ul>
   <li><a href="#prima-di-iniziare" id="toc-prima-di-iniziare" class="nav-link active" data-scroll-target="#prima-di-iniziare">Prima di iniziare</a>
@@ -289,7 +295,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Per raggiungere l’obiettivo userò le librerie che seguono:</p>
 <div class="cell" data-execution_count="1">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pathlib</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -299,7 +305,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(<span class="st">'ignore'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(<span class="st">'ignore'</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -308,9 +314,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Ho rielaborato i dati CORINE Land Cover dal 1990 al 2018 inserendoli in un unico <a href="https://massimilianomoraca.it/blog/gis/il-geopackage-una-valida-alternativa-al-formato-shape/">GeoPackage</a> che è possibile scaricare da <a href="https://massimilianomoraca.it/media/uploads/documents/2022/08/26/clcitalia.7z">qui</a>. I dati sono stati processati preventivamente usando <a href="https://postgis.net/">PostGIS</a> in modo da associare ai poligoni della CLC anche quelli dei Comuni italiani al 2022 dell’<a href="https://www.istat.it/it/archivio/222527">ISTAT</a>. E’ stato indispensabile questo passaggio preventivo perchè ho dovuto correggere gli errori topologici sui dati ISTAT e, al momento, trovo molto più comodo <a href="https://massimilianomoraca.it/blog/gis/correggere-le-geometrie-non-valide/">correggere gli errori topologici</a> tramite SQL piuttosto che con Python.</p>
 <div class="cell" data-execution_count="2">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>main_folder <span class="op">=</span> pathlib.Path(<span class="st">'/home/max/Desktop/clc'</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> main_folder.joinpath(<span class="st">'clcitalia.gpkg'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> main_folder.joinpath(<span class="st">'clcitalia.gpkg'</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -320,7 +326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In questa fase ho proceduto ad estrarre un po’ di dati statistici che userò nei passaggi successivi. Sono perlopiu analisi mirate al calcolo delle superfici che ho espresso in <a href="https://it.wikipedia.org/wiki/Ettaro">ettari</a>. Fatte queste analisi mi sono liberato dei dati geometrici perchè, non dovendoli più usare, mi alleggeriscono le analisi successive in termini di prestazioni hardware.</p>
 <div class="cell" data-execution_count="3">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># CLC 1990</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>clc1990 <span class="op">=</span> gpd.read_file(dataset, layer<span class="op">=</span><span class="st">'clc1990'</span>)</span>
@@ -350,14 +356,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>clc2018 <span class="op">=</span> gpd.read_file(dataset, layer<span class="op">=</span><span class="st">'clc2018'</span>)</span>
 <span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>clc2018.insert(loc<span class="op">=</span><span class="dv">10</span>, column<span class="op">=</span><span class="st">'sup_com_ha'</span>, value<span class="op">=</span>clc2018.sup_com_mq <span class="op">/</span> <span class="dv">10000</span>)</span>
 <span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>clc2018.insert(loc<span class="op">=</span><span class="dv">11</span>, column<span class="op">=</span><span class="st">'surface_ha_2018'</span>, value<span class="op">=</span><span class="bu">round</span>(clc2018.geometry.area <span class="op">/</span> <span class="dv">10000</span>, <span class="dv">4</span>))</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>clc2018.drop(columns<span class="op">=</span>{<span class="st">'sup_com_mq'</span>, <span class="st">'geometry'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>clc2018.drop(columns<span class="op">=</span>{<span class="st">'sup_com_mq'</span>, <span class="st">'geometry'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><strong>Test di visualizzazione</strong></p>
 <div class="cell" data-execution_count="4">
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>clc1990</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Codice</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>clc1990</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="4">
 
@@ -536,19 +542,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Per appartenza territoriale partirò proprio dalla Campania, lo faccio anche per riprendere parte della analisi del mio vecchio articolo.</p>
 <div class="cell" data-execution_count="5">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>clc1990_campania <span class="op">=</span> clc1990[clc1990[<span class="st">'regione'</span>] <span class="op">==</span> <span class="st">'Campania'</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>clc2000_campania <span class="op">=</span> clc2000[clc2000[<span class="st">'regione'</span>] <span class="op">==</span> <span class="st">'Campania'</span>]</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>clc2006_campania <span class="op">=</span> clc2006[clc2006[<span class="st">'regione'</span>] <span class="op">==</span> <span class="st">'Campania'</span>]</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>clc2012_campania <span class="op">=</span> clc2012[clc2012[<span class="st">'regione'</span>] <span class="op">==</span> <span class="st">'Campania'</span>]</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>clc2018_campania <span class="op">=</span> clc2018[clc2018[<span class="st">'regione'</span>] <span class="op">==</span> <span class="st">'Campania'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>clc2018_campania <span class="op">=</span> clc2018[clc2018[<span class="st">'regione'</span>] <span class="op">==</span> <span class="st">'Campania'</span>]</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Test di visualizzazione</p>
 <div class="cell" data-execution_count="6">
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>clc2000_campania</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Codice</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>clc2000_campania</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="6">
 
@@ -726,11 +732,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Livello 1</strong></p>
 <div class="cell" data-execution_count="7">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>campania_clc1990_label1 <span class="op">=</span> pd.DataFrame(clc1990_campania.groupby(<span class="st">'label1'</span>)[<span class="st">'surface_ha_1990'</span>].<span class="bu">sum</span>())</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>campania_clc1990_label1.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>campania_clc1990_label1.rename(columns<span class="op">=</span>{<span class="st">'label1'</span>: <span class="st">'CORINE Land Cover - level 1'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>campania_clc1990_label1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>campania_clc1990_label1</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="7">
 
@@ -778,11 +784,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Livello 2</strong></p>
 <div class="cell" data-execution_count="8">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>campania_clc1990_label2 <span class="op">=</span> pd.DataFrame(clc1990_campania.groupby(<span class="st">'label2'</span>)[<span class="st">'surface_ha_1990'</span>].<span class="bu">sum</span>())</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>campania_clc1990_label2.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>campania_clc1990_label2.rename(columns<span class="op">=</span>{<span class="st">'label2'</span>: <span class="st">'CORINE Land Cover - level 2'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>campania_clc1990_label2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>campania_clc1990_label2</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="8">
 
@@ -875,11 +881,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Livello 3</strong></p>
 <div class="cell" data-execution_count="9">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>campania_clc1990_label3 <span class="op">=</span> pd.DataFrame(clc1990_campania.groupby(<span class="st">'label3'</span>)[<span class="st">'surface_ha_1990'</span>].<span class="bu">sum</span>())</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>campania_clc1990_label3.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>campania_clc1990_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>campania_clc1990_label3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>campania_clc1990_label3</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="9">
 
@@ -1079,7 +1085,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="stato-al-2000">2.1.2 Stato al 2000</h3>
 <div class="cell" data-execution_count="10">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>campania_clc2000_label1 <span class="op">=</span> pd.DataFrame(clc2000_campania.groupby(<span class="st">'label1'</span>)[<span class="st">'surface_ha_2000'</span>].<span class="bu">sum</span>())</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>campania_clc2000_label1.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>campania_clc2000_label1.rename(columns<span class="op">=</span>{<span class="st">'label1'</span>: <span class="st">'CORINE Land Cover - level 1'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -1090,7 +1096,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>campania_clc2000_label3 <span class="op">=</span> pd.DataFrame(clc2000_campania.groupby(<span class="st">'label3'</span>)[<span class="st">'surface_ha_2000'</span>].<span class="bu">sum</span>())</span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>campania_clc2000_label3.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>campania_clc2000_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>campania_clc2000_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -1098,7 +1104,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="stato-al-2006">2.1.3 Stato al 2006</h3>
 <div class="cell" data-execution_count="11">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>campania_clc2006_label1 <span class="op">=</span> pd.DataFrame(clc2006_campania.groupby(<span class="st">'label1'</span>)[<span class="st">'surface_ha_2006'</span>].<span class="bu">sum</span>())</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>campania_clc2006_label1.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>campania_clc2006_label1.rename(columns<span class="op">=</span>{<span class="st">'label1'</span>: <span class="st">'CORINE Land Cover - level 1'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -1109,7 +1115,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>campania_clc2006_label3 <span class="op">=</span> pd.DataFrame(clc2006_campania.groupby(<span class="st">'label3'</span>)[<span class="st">'surface_ha_2006'</span>].<span class="bu">sum</span>())</span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>campania_clc2006_label3.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>campania_clc2006_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>campania_clc2006_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -1117,7 +1123,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="stato-al-2012">2.1.4 Stato al 2012</h3>
 <div class="cell" data-execution_count="12">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>campania_clc2012_label1 <span class="op">=</span> pd.DataFrame(clc2012_campania.groupby(<span class="st">'label1'</span>)[<span class="st">'surface_ha_2012'</span>].<span class="bu">sum</span>())</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>campania_clc2012_label1.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>campania_clc2012_label1.rename(columns<span class="op">=</span>{<span class="st">'label1'</span>: <span class="st">'CORINE Land Cover - level 1'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -1128,7 +1134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>campania_clc2012_label3 <span class="op">=</span> pd.DataFrame(clc2012_campania.groupby(<span class="st">'label3'</span>)[<span class="st">'surface_ha_2012'</span>].<span class="bu">sum</span>())</span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>campania_clc2012_label3.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>campania_clc2012_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>campania_clc2012_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -1136,7 +1142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="stato-al-2018">2.1.5 Stato al 2018</h3>
 <div class="cell" data-execution_count="13">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>campania_clc2018_label1 <span class="op">=</span> pd.DataFrame(clc2018_campania.groupby(<span class="st">'label1'</span>)[<span class="st">'surface_ha_2018'</span>].<span class="bu">sum</span>())</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>campania_clc2018_label1.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>campania_clc2018_label1.rename(columns<span class="op">=</span>{<span class="st">'label1'</span>: <span class="st">'CORINE Land Cover - level 1'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -1147,7 +1153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>campania_clc2018_label3 <span class="op">=</span> pd.DataFrame(clc2018_campania.groupby(<span class="st">'label3'</span>)[<span class="st">'surface_ha_2018'</span>].<span class="bu">sum</span>())</span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>campania_clc2018_label3.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>campania_clc2018_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>campania_clc2018_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -1158,7 +1164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="grafici-per-il-livello-1">2.2.1 Grafici per il livello 1</h3>
 <div class="cell" data-execution_count="14">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lvl1 <span class="op">=</span> [campania_clc1990_label1, campania_clc2000_label1, campania_clc2006_label1, campania_clc2012_label1, campania_clc2018_label1]</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>lvl1_df <span class="op">=</span> <span class="bu">reduce</span>(<span class="kw">lambda</span>  left,right: pd.merge(left,right,on<span class="op">=</span>[<span class="st">'CORINE Land Cover - level 1'</span>], how<span class="op">=</span><span class="st">'outer'</span>), lvl1)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>lvl1_df.fillna(<span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -1166,7 +1172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>lvl1_df.set_index(<span class="st">'CORINE Land Cover - level 1'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>lvl1_df.rename(columns<span class="op">=</span>{<span class="st">'surface_ha_1990'</span>: <span class="st">'1990'</span>, <span class="st">'surface_ha_2000'</span>: <span class="st">'2000'</span>, <span class="st">'surface_ha_2006'</span>: <span class="st">'2006'</span>, <span class="st">'surface_ha_2012'</span>: <span class="st">'2012'</span>, <span class="st">'surface_ha_2018'</span>: <span class="st">'2018'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>lvl1_df.sort_index(ascending<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>lvl1_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>lvl1_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="14">
 
@@ -1246,7 +1252,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="15">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fig1 <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>), dpi<span class="op">=</span><span class="dv">100</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>sub_fig <span class="op">=</span> GridSpec(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">1</span>, figure<span class="op">=</span>fig1, hspace<span class="op">=</span><span class="fl">0.35</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig1.add_subplot(sub_fig[<span class="dv">0</span>, <span class="dv">0</span>])</span>
@@ -1256,7 +1262,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">''</span>)</span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>ax.grid(color<span class="op">=</span><span class="st">'lightgrey'</span>, linestyle<span class="op">=</span><span class="st">'dashdot'</span>)</span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2cfea3760&gt;</code></pre>
@@ -1271,7 +1277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="grafici-per-il-livello-2">2.2.2 Grafici per il livello 2</h3>
 <div class="cell" data-execution_count="16">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>lvl2 <span class="op">=</span> [campania_clc1990_label2, campania_clc2000_label2, campania_clc2006_label2, campania_clc2012_label2, campania_clc2018_label2]</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>lvl2_df <span class="op">=</span> <span class="bu">reduce</span>(<span class="kw">lambda</span>  left,right: pd.merge(left,right,on<span class="op">=</span>[<span class="st">'CORINE Land Cover - level 2'</span>], how<span class="op">=</span><span class="st">'outer'</span>), lvl2)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>lvl2_df.fillna(<span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -1283,7 +1289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>lvl2_df.set_index(<span class="st">'CORINE Land Cover - level 2'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>lvl2_df <span class="op">=</span> lvl2_df[[<span class="st">'Surf.Diff. | 2000-1990'</span>, <span class="st">'Surf.Diff. | 2006-2000'</span>, <span class="st">'Surf.Diff. | 2012-2006'</span>, <span class="st">'Surf.Diff. | 2018-2012'</span>, <span class="st">'Surf.Diff. | 2018-1990'</span>]]</span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>lvl2_df.sort_index(ascending<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>lvl2_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>lvl2_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="16">
 
@@ -1436,7 +1442,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="17">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fig2 <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>), dpi<span class="op">=</span><span class="dv">100</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sub_fig <span class="op">=</span> GridSpec(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">1</span>, figure<span class="op">=</span>fig2, hspace<span class="op">=</span><span class="fl">0.35</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig2.add_subplot(sub_fig[<span class="dv">0</span>, <span class="dv">0</span>])</span>
@@ -1447,7 +1453,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>ax.grid(color<span class="op">=</span><span class="st">'lightgrey'</span>, linestyle<span class="op">=</span><span class="st">'dashdot'</span>)</span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation <span class="op">=</span> <span class="dv">90</span>)</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2eb2bc4f0&gt;</code></pre>
@@ -1463,7 +1469,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="grafici-per-il-livello-3">2.2.3 Grafici per il livello 3</h3>
 <div class="cell" data-execution_count="18">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>lvl3 <span class="op">=</span> [campania_clc1990_label3, campania_clc2000_label3, campania_clc2006_label3, campania_clc2012_label3, campania_clc2018_label3]</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>lvl3_df <span class="op">=</span> <span class="bu">reduce</span>(<span class="kw">lambda</span>  left,right: pd.merge(left,right,on<span class="op">=</span>[<span class="st">'CORINE Land Cover - level 3'</span>], how<span class="op">=</span><span class="st">'outer'</span>), lvl3)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>lvl3_df.fillna(<span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -1475,7 +1481,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>lvl3_df.set_index(<span class="st">'CORINE Land Cover - level 3'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>lvl3_df.sort_index(ascending<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>lvl3_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>lvl3_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="18">
 
@@ -1999,7 +2005,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="19">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fig3 <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>), dpi<span class="op">=</span><span class="dv">100</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>sub_fig <span class="op">=</span> GridSpec(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">1</span>, figure<span class="op">=</span>fig3, hspace<span class="op">=</span><span class="fl">0.35</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig3.add_subplot(sub_fig[<span class="dv">0</span>, <span class="dv">0</span>])</span>
@@ -2010,7 +2016,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>ax.grid(color<span class="op">=</span><span class="st">'lightgrey'</span>, linestyle<span class="op">=</span><span class="st">'dashdot'</span>)</span>
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation <span class="op">=</span> <span class="dv">90</span>)</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2df35bd90&gt;</code></pre>
@@ -2032,7 +2038,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Visto che dal 2000 in poi l’accuratezza geometrica del dato CLC è aumentata considerevolmente, le analisi di dettaglio che seguono si concentreranno sulla differenza tra 2000 e 2018.</p>
 <div class="cell" data-execution_count="21">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Dati 1990</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>focus_1990 <span class="op">=</span> clc1990_campania[[<span class="st">'pro_com'</span>, <span class="st">'comune'</span>, <span class="st">'provincia'</span>, <span class="st">'sup_com_ha'</span>, <span class="st">'label3'</span>, <span class="st">'surface_ha_1990'</span>]]</span>
@@ -2062,13 +2068,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>focus_2018 <span class="op">=</span> clc2018_campania[[<span class="st">'pro_com'</span>, <span class="st">'comune'</span>, <span class="st">'provincia'</span>, <span class="st">'sup_com_ha'</span>, <span class="st">'label3'</span>, <span class="st">'surface_ha_2018'</span>]]</span>
 <span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>focus_2018.set_index(<span class="st">'label3'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>focus_2018_group <span class="op">=</span> pd.DataFrame(focus_2018.groupby([<span class="st">'pro_com'</span>, <span class="st">'comune'</span>, <span class="st">'sup_com_ha'</span>, <span class="st">'label3'</span>])[<span class="st">'surface_ha_2018'</span>].<span class="bu">sum</span>())</span>
-<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>focus_2018_group.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>focus_2018_group.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell" data-execution_count="22">
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>focus_1990_group</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Codice</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>focus_1990_group</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="22">
 
@@ -2185,7 +2191,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>I gruppi 1.1 ed 1.2 della CLC</p>
 <div class="cell" data-execution_count="23">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Dati 1990</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>artificial_surface_1990 <span class="op">=</span> focus_1990_group[focus_1990_group[<span class="st">'label3'</span>].isin([<span class="st">'Continuous urban fabric'</span>, <span class="st">'Discontinuous urban fabric'</span>, <span class="st">'Industrial or commercial units'</span>, <span class="st">'Road and rail networks and associated land'</span>, <span class="st">'Port areas'</span>, <span class="st">'Airports'</span>])]</span>
@@ -2224,7 +2230,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a>focus_artificial_df.insert(loc<span class="op">=</span><span class="dv">7</span>, column<span class="op">=</span><span class="st">'perc_2018'</span>, value<span class="op">=</span><span class="bu">round</span>(focus_artificial_df.surface_ha_2018 <span class="op">/</span> focus_artificial_df.sup_com_ha, <span class="dv">4</span>) <span class="op">*</span> <span class="dv">100</span>)</span>
 <span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a>focus_artificial_df.insert(loc<span class="op">=</span><span class="dv">8</span>, column<span class="op">=</span><span class="st">'Perc.Diff. | 2018-2000'</span>, value<span class="op">=</span>(focus_artificial_df.perc_2018 <span class="op">-</span> focus_artificial_df.perc_2000))</span>
 <span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a>focus_artificial_df.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a>focus_artificial_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a>focus_artificial_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="23">
 
@@ -2446,10 +2452,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="24">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Superfici in arretramento</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>reduction_artificial_area <span class="op">=</span> focus_artificial_df.iloc[<span class="dv">0</span>:<span class="dv">10</span>]</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>reduction_artificial_area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>reduction_artificial_area</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="24">
 
@@ -2653,11 +2659,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="25">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Superfici in avanzamento</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>increase_artificial_area <span class="op">=</span> focus_artificial_df.iloc[<span class="op">-</span><span class="dv">10</span>:]</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>increase_artificial_area.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>increase_artificial_area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>increase_artificial_area</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="25">
 
@@ -2861,7 +2867,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="26">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>artificial_df <span class="op">=</span> pd.concat([reduction_artificial_area, increase_artificial_area])</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>artificial_df.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>artificial_df <span class="op">=</span> artificial_df[[<span class="st">'comune'</span>, <span class="st">'Perc.Diff. | 2018-2000'</span>]]</span>
@@ -2878,7 +2884,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>ax_artificial.grid(color<span class="op">=</span><span class="st">'lightgrey'</span>, linestyle<span class="op">=</span><span class="st">'dashdot'</span>)</span>
 <span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation <span class="op">=</span> <span class="dv">90</span>)</span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2d646e0d0&gt;</code></pre>
@@ -2896,7 +2902,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Il gruppo 3.1 della CLC</p>
 <div class="cell" data-execution_count="27">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Dati 1990</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>forest_surface_1990 <span class="op">=</span> focus_1990_group[focus_1990_group[<span class="st">'label3'</span>].isin([<span class="st">'Broad-leaved forest'</span>, <span class="st">'Coniferous forest'</span>, <span class="st">'Mixed forest'</span>])]</span>
@@ -2935,7 +2941,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a>focus_forest_df.insert(loc<span class="op">=</span><span class="dv">7</span>, column<span class="op">=</span><span class="st">'perc_2018'</span>, value<span class="op">=</span><span class="bu">round</span>(focus_forest_df.surface_ha_2018 <span class="op">/</span> focus_forest_df.sup_com_ha, <span class="dv">4</span>) <span class="op">*</span> <span class="dv">100</span>)</span>
 <span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a>focus_forest_df.insert(loc<span class="op">=</span><span class="dv">8</span>, column<span class="op">=</span><span class="st">'Perc.Diff. | 2018-2000'</span>, value<span class="op">=</span>(focus_forest_df.perc_2018 <span class="op">-</span> focus_forest_df.perc_2000))</span>
 <span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a>focus_forest_df.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a>focus_forest_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a>focus_forest_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="27">
 
@@ -3157,10 +3163,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="28">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Superfici in arretramento</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>reduction_forest_area <span class="op">=</span> focus_forest_df.iloc[<span class="dv">0</span>:<span class="dv">10</span>]</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>reduction_forest_area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>reduction_forest_area</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="28">
 
@@ -3364,11 +3370,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="29">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Superfici in avanzamento</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>increase_forest_area <span class="op">=</span> focus_forest_df.iloc[<span class="op">-</span><span class="dv">10</span>:]</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>increase_forest_area.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>increase_forest_area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>increase_forest_area</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="29">
 
@@ -3572,7 +3578,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="30">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>forest_df <span class="op">=</span> pd.concat([reduction_forest_area, increase_forest_area])</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>forest_df.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>forest_df <span class="op">=</span> forest_df[[<span class="st">'comune'</span>, <span class="st">'Perc.Diff. | 2018-2000'</span>]]</span>
@@ -3589,7 +3595,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>ax_forest.grid(color<span class="op">=</span><span class="st">'lightgrey'</span>, linestyle<span class="op">=</span><span class="st">'dashdot'</span>)</span>
 <span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation <span class="op">=</span> <span class="dv">90</span>)</span>
-<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2d401af40&gt;</code></pre>
@@ -3606,7 +3612,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Il gruppo 2.1 della CLC</p>
 <div class="cell" data-execution_count="31">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Dati 1990</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>arable_lands_surface_1990 <span class="op">=</span> focus_1990_group[focus_1990_group[<span class="st">'label3'</span>].isin([<span class="st">'Non-irrigated arable land'</span>, <span class="st">'Permanently irrigated land'</span>])]</span>
@@ -3645,7 +3651,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb35-36"><a href="#cb35-36" aria-hidden="true" tabindex="-1"></a>focus_arable_lands_df.insert(loc<span class="op">=</span><span class="dv">7</span>, column<span class="op">=</span><span class="st">'perc_2018'</span>, value<span class="op">=</span><span class="bu">round</span>(focus_arable_lands_df.surface_ha_2018 <span class="op">/</span> focus_arable_lands_df.sup_com_ha, <span class="dv">4</span>) <span class="op">*</span> <span class="dv">100</span>)</span>
 <span id="cb35-37"><a href="#cb35-37" aria-hidden="true" tabindex="-1"></a>focus_arable_lands_df.insert(loc<span class="op">=</span><span class="dv">8</span>, column<span class="op">=</span><span class="st">'Perc.Diff. | 2018-2000'</span>, value<span class="op">=</span>(focus_arable_lands_df.perc_2018 <span class="op">-</span> focus_arable_lands_df.perc_2000))</span>
 <span id="cb35-38"><a href="#cb35-38" aria-hidden="true" tabindex="-1"></a>focus_arable_lands_df.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb35-39"><a href="#cb35-39" aria-hidden="true" tabindex="-1"></a>focus_arable_lands_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-39"><a href="#cb35-39" aria-hidden="true" tabindex="-1"></a>focus_arable_lands_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="31">
 
@@ -3867,11 +3873,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="32">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Superfici in arretramento</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>reduction_arable_lands_area <span class="op">=</span> focus_arable_lands_df.iloc[<span class="dv">0</span>:<span class="dv">10</span>]</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>reduction_arable_lands_area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>reduction_arable_lands_area</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="32">
 
@@ -4075,12 +4081,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="33">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Superfici in avanzamento</span></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>increase_arable_lands_area <span class="op">=</span> focus_arable_lands_df.iloc[<span class="op">-</span><span class="dv">10</span>:]</span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>increase_arable_lands_area.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>increase_arable_lands_area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>increase_arable_lands_area</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="33">
 
@@ -4284,7 +4290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="34">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>arable_lands_df <span class="op">=</span> pd.concat([reduction_arable_lands_area, increase_arable_lands_area])</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>arable_lands_df.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>arable_lands_df <span class="op">=</span> arable_lands_df[[<span class="st">'comune'</span>, <span class="st">'Perc.Diff. | 2018-2000'</span>]]</span>
@@ -4301,7 +4307,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>ax_arable_lands.grid(color<span class="op">=</span><span class="st">'lightgrey'</span>, linestyle<span class="op">=</span><span class="st">'dashdot'</span>)</span>
 <span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation <span class="op">=</span> <span class="dv">90</span>)</span>
-<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2d5ed0fd0&gt;</code></pre>
@@ -4316,7 +4322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="aree-bruciate">2.3.4 Aree bruciate</h3>
 <div class="cell" data-execution_count="35">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Dati 1990</span></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>burnt_surface_1990 <span class="op">=</span> focus_1990_group[focus_1990_group[<span class="st">'label3'</span>].isin([<span class="st">'Burnt areas'</span>])]</span>
@@ -4355,7 +4361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb40-36"><a href="#cb40-36" aria-hidden="true" tabindex="-1"></a>focus_burnt_df.insert(loc<span class="op">=</span><span class="dv">7</span>, column<span class="op">=</span><span class="st">'perc_2018'</span>, value<span class="op">=</span><span class="bu">round</span>(focus_burnt_df.surface_ha_2018 <span class="op">/</span> focus_burnt_df.sup_com_ha, <span class="dv">4</span>) <span class="op">*</span> <span class="dv">100</span>)</span>
 <span id="cb40-37"><a href="#cb40-37" aria-hidden="true" tabindex="-1"></a>focus_burnt_df.insert(loc<span class="op">=</span><span class="dv">8</span>, column<span class="op">=</span><span class="st">'Perc.Diff. | 2018-2000'</span>, value<span class="op">=</span>(focus_burnt_df.perc_2018 <span class="op">-</span> focus_burnt_df.perc_2000))</span>
 <span id="cb40-38"><a href="#cb40-38" aria-hidden="true" tabindex="-1"></a>focus_burnt_df.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb40-39"><a href="#cb40-39" aria-hidden="true" tabindex="-1"></a>focus_burnt_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-39"><a href="#cb40-39" aria-hidden="true" tabindex="-1"></a>focus_burnt_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="35">
 
@@ -5277,7 +5283,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="aree-adibite-a-discarica">2.3.5 Aree adibite a discarica</h3>
 <div class="cell" data-execution_count="36">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Dati 1990</span></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>dump_surface_1990 <span class="op">=</span> focus_1990_group[focus_1990_group[<span class="st">'label3'</span>].isin([<span class="st">'Dump sites'</span>])]</span>
@@ -5316,7 +5322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb41-36"><a href="#cb41-36" aria-hidden="true" tabindex="-1"></a>focus_dump_df.insert(loc<span class="op">=</span><span class="dv">7</span>, column<span class="op">=</span><span class="st">'perc_2018'</span>, value<span class="op">=</span><span class="bu">round</span>(focus_dump_df.surface_ha_2018 <span class="op">/</span> focus_dump_df.sup_com_ha, <span class="dv">4</span>) <span class="op">*</span> <span class="dv">100</span>)</span>
 <span id="cb41-37"><a href="#cb41-37" aria-hidden="true" tabindex="-1"></a>focus_dump_df.insert(loc<span class="op">=</span><span class="dv">8</span>, column<span class="op">=</span><span class="st">'Perc.Diff. | 2018-2000'</span>, value<span class="op">=</span>(focus_dump_df.perc_2018 <span class="op">-</span> focus_dump_df.perc_2000))</span>
 <span id="cb41-38"><a href="#cb41-38" aria-hidden="true" tabindex="-1"></a>focus_dump_df.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb41-39"><a href="#cb41-39" aria-hidden="true" tabindex="-1"></a>focus_dump_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb41-39"><a href="#cb41-39" aria-hidden="true" tabindex="-1"></a>focus_dump_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="36">
 
@@ -5456,7 +5462,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="aree-verdi-urbane">2.3.6 Aree verdi urbane</h3>
 <div class="cell" data-execution_count="37">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dati 1990</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>green_urban_surface_1990 <span class="op">=</span> focus_1990_group[focus_1990_group[<span class="st">'label3'</span>].isin([<span class="st">'Green urban areas'</span>])]</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>green_urban_surface_1990_group <span class="op">=</span> pd.DataFrame(green_urban_surface_1990.groupby([<span class="st">'pro_com'</span>])[<span class="st">'surface_ha_1990'</span>].<span class="bu">sum</span>())</span>
@@ -5494,7 +5500,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb42-35"><a href="#cb42-35" aria-hidden="true" tabindex="-1"></a>focus_green_urban_df.insert(loc<span class="op">=</span><span class="dv">7</span>, column<span class="op">=</span><span class="st">'perc_2018'</span>, value<span class="op">=</span><span class="bu">round</span>(focus_green_urban_df.surface_ha_2018 <span class="op">/</span> focus_green_urban_df.sup_com_ha, <span class="dv">4</span>) <span class="op">*</span> <span class="dv">100</span>)</span>
 <span id="cb42-36"><a href="#cb42-36" aria-hidden="true" tabindex="-1"></a>focus_green_urban_df.insert(loc<span class="op">=</span><span class="dv">8</span>, column<span class="op">=</span><span class="st">'Perc.Diff. | 2018-2000'</span>, value<span class="op">=</span>(focus_green_urban_df.perc_2018 <span class="op">-</span> focus_green_urban_df.perc_2000))</span>
 <span id="cb42-37"><a href="#cb42-37" aria-hidden="true" tabindex="-1"></a>focus_green_urban_df.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb42-38"><a href="#cb42-38" aria-hidden="true" tabindex="-1"></a>focus_green_urban_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb42-38"><a href="#cb42-38" aria-hidden="true" tabindex="-1"></a>focus_green_urban_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="37">
 
@@ -5689,11 +5695,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="stato-al-1990-1">3.1.1 Stato al 1990</h3>
 <div class="cell" data-execution_count="38">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>clc1990_label1 <span class="op">=</span> pd.DataFrame(clc1990.groupby(<span class="st">'label1'</span>)[<span class="st">'surface_ha_1990'</span>].<span class="bu">sum</span>())</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>clc1990_label1.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>clc1990_label1.rename(columns<span class="op">=</span>{<span class="st">'label1'</span>: <span class="st">'CORINE Land Cover - level 1'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>clc1990_label1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>clc1990_label1</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="38">
 
@@ -5740,11 +5746,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="39">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>clc1990_label2 <span class="op">=</span> pd.DataFrame(clc1990.groupby(<span class="st">'label2'</span>)[<span class="st">'surface_ha_1990'</span>].<span class="bu">sum</span>())</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>clc1990_label2.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>clc1990_label2.rename(columns<span class="op">=</span>{<span class="st">'label2'</span>: <span class="st">'CORINE Land Cover - level 2'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>clc1990_label2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>clc1990_label2</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="39">
 
@@ -5841,11 +5847,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="40">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>clc1990_label3 <span class="op">=</span> pd.DataFrame(clc1990.groupby(<span class="st">'label3'</span>)[<span class="st">'surface_ha_1990'</span>].<span class="bu">sum</span>())</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>clc1990_label3.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>clc1990_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>clc1990_label3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>clc1990_label3</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="40">
 
@@ -6080,7 +6086,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="stato-al-2000-1">3.1.2 Stato al 2000</h3>
 <div class="cell" data-execution_count="41">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>clc2000_label1 <span class="op">=</span> pd.DataFrame(clc2000.groupby(<span class="st">'label1'</span>)[<span class="st">'surface_ha_2000'</span>].<span class="bu">sum</span>())</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>clc2000_label1.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>clc2000_label1.rename(columns<span class="op">=</span>{<span class="st">'label1'</span>: <span class="st">'CORINE Land Cover - level 1'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -6091,7 +6097,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>clc2000_label3 <span class="op">=</span> pd.DataFrame(clc2000.groupby(<span class="st">'label3'</span>)[<span class="st">'surface_ha_2000'</span>].<span class="bu">sum</span>())</span>
 <span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>clc2000_label3.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>clc2000_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>clc2000_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -6099,7 +6105,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="stato-al-2006-1">3.1.3 Stato al 2006</h3>
 <div class="cell" data-execution_count="42">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>clc2006_label1 <span class="op">=</span> pd.DataFrame(clc2006.groupby(<span class="st">'label1'</span>)[<span class="st">'surface_ha_2006'</span>].<span class="bu">sum</span>())</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>clc2006_label1.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>clc2006_label1.rename(columns<span class="op">=</span>{<span class="st">'label1'</span>: <span class="st">'CORINE Land Cover - level 1'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -6110,7 +6116,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>clc2006_label3 <span class="op">=</span> pd.DataFrame(clc2006.groupby(<span class="st">'label3'</span>)[<span class="st">'surface_ha_2006'</span>].<span class="bu">sum</span>())</span>
 <span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>clc2006_label3.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>clc2006_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>clc2006_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -6118,7 +6124,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="stato-al-2012-1">3.1.4 Stato al 2012</h3>
 <div class="cell" data-execution_count="43">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>clc2012_label1 <span class="op">=</span> pd.DataFrame(clc2012.groupby(<span class="st">'label1'</span>)[<span class="st">'surface_ha_2012'</span>].<span class="bu">sum</span>())</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>clc2012_label1.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>clc2012_label1.rename(columns<span class="op">=</span>{<span class="st">'label1'</span>: <span class="st">'CORINE Land Cover - level 1'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -6129,7 +6135,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>clc2012_label3 <span class="op">=</span> pd.DataFrame(clc2012.groupby(<span class="st">'label3'</span>)[<span class="st">'surface_ha_2012'</span>].<span class="bu">sum</span>())</span>
 <span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>clc2012_label3.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>clc2012_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>clc2012_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -6137,7 +6143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="stato-al-2018-1">3.1.5 Stato al 2018</h3>
 <div class="cell" data-execution_count="44">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>clc2018_label1 <span class="op">=</span> pd.DataFrame(clc2018.groupby(<span class="st">'label1'</span>)[<span class="st">'surface_ha_2018'</span>].<span class="bu">sum</span>())</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>clc2018_label1.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>clc2018_label1.rename(columns<span class="op">=</span>{<span class="st">'label1'</span>: <span class="st">'CORINE Land Cover - level 1'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -6148,7 +6154,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>clc2018_label3 <span class="op">=</span> pd.DataFrame(clc2018.groupby(<span class="st">'label3'</span>)[<span class="st">'surface_ha_2018'</span>].<span class="bu">sum</span>())</span>
 <span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>clc2018_label3.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>clc2018_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>clc2018_label3.rename(columns<span class="op">=</span>{<span class="st">'label3'</span>: <span class="st">'CORINE Land Cover - level 3'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -6159,14 +6165,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="grafici-per-il-livello-1-1">3.2.1 Grafici per il livello 1</h3>
 <div class="cell" data-execution_count="45">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>lvl1_naz <span class="op">=</span> [clc1990_label1, clc2000_label1, clc2006_label1, clc2012_label1, clc2018_label1]</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>lvl1_naz_df <span class="op">=</span> <span class="bu">reduce</span>(<span class="kw">lambda</span>  left,right: pd.merge(left,right,on<span class="op">=</span>[<span class="st">'CORINE Land Cover - level 1'</span>], how<span class="op">=</span><span class="st">'outer'</span>), lvl1_naz)</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>lvl1_naz_df.insert(loc<span class="op">=</span><span class="dv">6</span>, column<span class="op">=</span><span class="st">'Surf.Diff. | 2018-1990'</span>, value<span class="op">=</span>(lvl1_naz_df.surface_ha_2018 <span class="op">-</span> lvl1_naz_df.surface_ha_1990))</span>
 <span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>lvl1_naz_df.fillna(<span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>lvl1_naz_df.set_index(<span class="st">'CORINE Land Cover - level 1'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>lvl1_naz_df.rename(columns<span class="op">=</span>{<span class="st">'surface_ha_1990'</span>: <span class="st">'1990'</span>, <span class="st">'surface_ha_2000'</span>: <span class="st">'2000'</span>, <span class="st">'surface_ha_2006'</span>: <span class="st">'2006'</span>, <span class="st">'surface_ha_2012'</span>: <span class="st">'2012'</span>, <span class="st">'surface_ha_2018'</span>: <span class="st">'2018'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>lvl1_naz_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>lvl1_naz_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="45">
 
@@ -6246,7 +6252,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="46">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>fig1_naz <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>), dpi<span class="op">=</span><span class="dv">100</span>)</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>sub_fig_naz <span class="op">=</span> GridSpec(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">1</span>, figure<span class="op">=</span>fig1_naz, hspace<span class="op">=</span><span class="fl">0.35</span>)</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>ax_naz <span class="op">=</span> fig1_naz.add_subplot(sub_fig_naz[<span class="dv">0</span>, <span class="dv">0</span>])</span>
@@ -6255,7 +6261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>ax_naz.yaxis.set_label_text(<span class="st">'ha'</span>)</span>
 <span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>ax_naz.set_xlabel(<span class="st">''</span>)</span>
 <span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="46">
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2d08eedc0&gt;</code></pre>
@@ -6270,7 +6276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="grafici-per-il-livello-2-1">3.2.2 Grafici per il livello 2</h3>
 <div class="cell" data-execution_count="47">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>lvl2_naz <span class="op">=</span> [clc1990_label2, clc2000_label2, clc2006_label2, clc2012_label2, clc2018_label2]</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>lvl2_naz_df <span class="op">=</span> <span class="bu">reduce</span>(<span class="kw">lambda</span>  left,right: pd.merge(left,right,on<span class="op">=</span>[<span class="st">'CORINE Land Cover - level 2'</span>], how<span class="op">=</span><span class="st">'outer'</span>), lvl2_naz)</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>lvl2_naz_df.insert(loc<span class="op">=</span><span class="dv">6</span>, column<span class="op">=</span><span class="st">'Surf.Diff. | 2000-1990'</span>, value<span class="op">=</span>(lvl2_naz_df.surface_ha_2000 <span class="op">-</span> lvl2_naz_df.surface_ha_1990))</span>
@@ -6281,7 +6287,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>lvl2_naz_df.fillna(<span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>lvl2_naz_df.set_index(<span class="st">'CORINE Land Cover - level 2'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>lvl2_naz_df <span class="op">=</span> lvl2_naz_df[[<span class="st">'Surf.Diff. | 2000-1990'</span>, <span class="st">'Surf.Diff. | 2006-2000'</span>, <span class="st">'Surf.Diff. | 2012-2006'</span>, <span class="st">'Surf.Diff. | 2018-2012'</span>, <span class="st">'Surf.Diff. | 2018-1990'</span>]]</span>
-<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>lvl2_naz_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>lvl2_naz_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="47">
 
@@ -6434,7 +6440,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="48">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>fig2_naz <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>), dpi<span class="op">=</span><span class="dv">100</span>)</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>sub_fig_naz <span class="op">=</span> GridSpec(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">1</span>, figure<span class="op">=</span>fig2_naz, hspace<span class="op">=</span><span class="fl">0.35</span>)</span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>ax_naz <span class="op">=</span> fig2_naz.add_subplot(sub_fig_naz[<span class="dv">0</span>, <span class="dv">0</span>])</span>
@@ -6444,7 +6450,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>ax_naz.set_xlabel(<span class="st">''</span>)</span>
 <span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation <span class="op">=</span> <span class="dv">90</span>)</span>
-<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="48">
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2cdb88ee0&gt;</code></pre>
@@ -6459,7 +6465,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="grafici-per-il-livello-3-1">3.2.3 Grafici per il livello 3</h3>
 <div class="cell" data-execution_count="49">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>lvl3_naz <span class="op">=</span> [clc1990_label3, clc2000_label3, clc2006_label3, clc2012_label3, clc2018_label3]</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>lvl3_naz_df <span class="op">=</span> <span class="bu">reduce</span>(<span class="kw">lambda</span>  left,right: pd.merge(left,right,on<span class="op">=</span>[<span class="st">'CORINE Land Cover - level 3'</span>], how<span class="op">=</span><span class="st">'outer'</span>), lvl3_naz)</span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>lvl3_naz_df.insert(loc<span class="op">=</span><span class="dv">6</span>, column<span class="op">=</span><span class="st">'Surf.Diff. | 2000-1990'</span>, value<span class="op">=</span>(lvl3_naz_df.surface_ha_2000 <span class="op">-</span> lvl3_naz_df.surface_ha_1990))</span>
@@ -6469,7 +6475,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>lvl3_naz_df.insert(loc<span class="op">=</span><span class="dv">9</span>, column<span class="op">=</span><span class="st">'Surf.Diff. | 2018-1990'</span>, value<span class="op">=</span>(lvl3_naz_df.surface_ha_2018 <span class="op">-</span> lvl3_naz_df.surface_ha_1990))</span>
 <span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>lvl3_naz_df.set_index(<span class="st">'CORINE Land Cover - level 3'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>lvl3_naz_df.fillna(<span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>lvl3_naz_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>lvl3_naz_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="49">
 
@@ -7058,7 +7064,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="50">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>fig3_naz <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>), dpi<span class="op">=</span><span class="dv">100</span>)</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>sub_fig_naz <span class="op">=</span> GridSpec(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">1</span>, figure<span class="op">=</span>fig3_naz, hspace<span class="op">=</span><span class="fl">0.35</span>)</span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>ax_naz <span class="op">=</span> fig3_naz.add_subplot(sub_fig_naz[<span class="dv">0</span>, <span class="dv">0</span>])</span>
@@ -7068,7 +7074,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>ax_naz.set_xlabel(<span class="st">''</span>)</span>
 <span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation <span class="op">=</span> <span class="dv">90</span>)</span>
-<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="50">
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2d2f7ddc0&gt;</code></pre>
@@ -7084,7 +7090,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="focus-sui-comuni-1">3.3 Focus sui Comuni</h2>
 <div class="cell" data-execution_count="51">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dati 1990</span></span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>focus_1990_naz <span class="op">=</span> clc1990[[<span class="st">'pro_com'</span>, <span class="st">'comune'</span>, <span class="st">'provincia'</span>, <span class="st">'regione'</span>, <span class="st">'sup_com_ha'</span>, <span class="st">'label3'</span>, <span class="st">'surface_ha_1990'</span>]]</span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>focus_1990_naz.set_index(<span class="st">'label3'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -7113,13 +7119,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb59-26"><a href="#cb59-26" aria-hidden="true" tabindex="-1"></a>focus_2018_naz <span class="op">=</span> clc2018[[<span class="st">'pro_com'</span>, <span class="st">'comune'</span>, <span class="st">'provincia'</span>, <span class="st">'regione'</span>, <span class="st">'sup_com_ha'</span>, <span class="st">'label3'</span>, <span class="st">'surface_ha_2018'</span>]]</span>
 <span id="cb59-27"><a href="#cb59-27" aria-hidden="true" tabindex="-1"></a>focus_2018_naz.set_index(<span class="st">'label3'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb59-28"><a href="#cb59-28" aria-hidden="true" tabindex="-1"></a>focus_naz_2018_group <span class="op">=</span> pd.DataFrame(focus_2018_naz.groupby([<span class="st">'pro_com'</span>, <span class="st">'comune'</span>, <span class="st">'provincia'</span>, <span class="st">'regione'</span>, <span class="st">'sup_com_ha'</span>, <span class="st">'label3'</span>])[<span class="st">'surface_ha_2018'</span>].<span class="bu">sum</span>())</span>
-<span id="cb59-29"><a href="#cb59-29" aria-hidden="true" tabindex="-1"></a>focus_naz_2018_group.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb59-29"><a href="#cb59-29" aria-hidden="true" tabindex="-1"></a>focus_naz_2018_group.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell" data-execution_count="52">
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>focus_naz_2018_group</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>Codice</summary>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>focus_naz_2018_group</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="52">
 
@@ -7260,7 +7266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>I gruppi 1.1 ed 1.2 della CLC</p>
 <div class="cell" data-execution_count="53">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dati 1990</span></span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>artificial_surface_naz_1990 <span class="op">=</span> focus_naz_1990_group[focus_naz_1990_group[<span class="st">'label3'</span>].isin([<span class="st">'Continuous urban fabric'</span>, <span class="st">'Discontinuous urban fabric'</span>, <span class="st">'Industrial or commercial units'</span>, <span class="st">'Road and rail networks and associated land'</span>, <span class="st">'Port areas'</span>, <span class="st">'Airports'</span>])]</span>
 <span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>artificial_surface_naz_1990_group <span class="op">=</span> pd.DataFrame(artificial_surface_naz_1990.groupby([<span class="st">'pro_com'</span>])[<span class="st">'surface_ha_1990'</span>].<span class="bu">sum</span>())</span>
@@ -7298,7 +7304,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb61-35"><a href="#cb61-35" aria-hidden="true" tabindex="-1"></a>focus_artificial_naz_df.insert(loc<span class="op">=</span><span class="dv">9</span>, column<span class="op">=</span><span class="st">'perc_2018'</span>, value<span class="op">=</span><span class="bu">round</span>(focus_artificial_naz_df.surface_ha_2018 <span class="op">/</span> focus_artificial_naz_df.sup_com_ha, <span class="dv">4</span>) <span class="op">*</span> <span class="dv">100</span>)</span>
 <span id="cb61-36"><a href="#cb61-36" aria-hidden="true" tabindex="-1"></a>focus_artificial_naz_df.insert(loc<span class="op">=</span><span class="dv">10</span>, column<span class="op">=</span><span class="st">'Perc.Diff. | 2018-2000'</span>, value<span class="op">=</span>(focus_artificial_naz_df.perc_2018 <span class="op">-</span> focus_artificial_naz_df.perc_2000))</span>
 <span id="cb61-37"><a href="#cb61-37" aria-hidden="true" tabindex="-1"></a>focus_artificial_naz_df.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb61-38"><a href="#cb61-38" aria-hidden="true" tabindex="-1"></a>focus_artificial_naz_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb61-38"><a href="#cb61-38" aria-hidden="true" tabindex="-1"></a>focus_artificial_naz_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="53">
 
@@ -7544,10 +7550,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="54">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Superfici in arretramento</span></span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>naz_reduction_artificial_area <span class="op">=</span> focus_artificial_naz_df.iloc[<span class="dv">0</span>:<span class="dv">10</span>]</span>
-<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>naz_reduction_artificial_area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>naz_reduction_artificial_area</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="54">
 
@@ -7773,11 +7779,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="55">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Superfici in avanzamento</span></span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>naz_increase_artificial_area <span class="op">=</span> focus_artificial_naz_df.iloc[<span class="op">-</span><span class="dv">10</span>:]</span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>naz_increase_artificial_area.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>naz_increase_artificial_area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>naz_increase_artificial_area</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="55">
 
@@ -8007,7 +8013,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Il gruppo 3.1 della CLC</p>
 <div class="cell" data-execution_count="56">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dati 1990</span></span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>forest_surface_naz_1990 <span class="op">=</span> focus_naz_1990_group[focus_naz_1990_group[<span class="st">'label3'</span>].isin([<span class="st">'Broad-leaved forest'</span>, <span class="st">'Coniferous forest'</span>, <span class="st">'Mixed forest'</span>])]</span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>forest_surface_naz_1990_group <span class="op">=</span> pd.DataFrame(forest_surface_naz_1990.groupby([<span class="st">'pro_com'</span>])[<span class="st">'surface_ha_1990'</span>].<span class="bu">sum</span>())</span>
@@ -8045,7 +8051,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb64-35"><a href="#cb64-35" aria-hidden="true" tabindex="-1"></a>focus_forest_naz_df.insert(loc<span class="op">=</span><span class="dv">9</span>, column<span class="op">=</span><span class="st">'perc_2018'</span>, value<span class="op">=</span><span class="bu">round</span>(focus_forest_naz_df.surface_ha_2018 <span class="op">/</span> focus_forest_naz_df.sup_com_ha, <span class="dv">4</span>) <span class="op">*</span> <span class="dv">100</span>)</span>
 <span id="cb64-36"><a href="#cb64-36" aria-hidden="true" tabindex="-1"></a>focus_forest_naz_df.insert(loc<span class="op">=</span><span class="dv">10</span>, column<span class="op">=</span><span class="st">'Perc.Diff. | 2018-2000'</span>, value<span class="op">=</span>(focus_forest_naz_df.perc_2018 <span class="op">-</span> focus_forest_naz_df.perc_2000))</span>
 <span id="cb64-37"><a href="#cb64-37" aria-hidden="true" tabindex="-1"></a>focus_forest_naz_df.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb64-38"><a href="#cb64-38" aria-hidden="true" tabindex="-1"></a>focus_forest_naz_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb64-38"><a href="#cb64-38" aria-hidden="true" tabindex="-1"></a>focus_forest_naz_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="56">
 
@@ -8291,10 +8297,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="57">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Superfici in arretramento</span></span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>naz_reduction_forest_area <span class="op">=</span> focus_forest_naz_df.iloc[<span class="dv">0</span>:<span class="dv">10</span>]</span>
-<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>naz_reduction_forest_area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>naz_reduction_forest_area</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="57">
 
@@ -8520,11 +8526,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="58">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Superfici in avanzamento</span></span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>naz_increase_forest_area <span class="op">=</span> focus_forest_naz_df.iloc[<span class="op">-</span><span class="dv">10</span>:]</span>
 <span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>naz_increase_forest_area.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>naz_increase_forest_area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>naz_increase_forest_area</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="58">
 
@@ -8754,7 +8760,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Il gruppo 2.1 della CLC</p>
 <div class="cell" data-execution_count="59">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dati 1990</span></span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>arable_lands_surface_naz_1990 <span class="op">=</span> focus_naz_1990_group[focus_naz_1990_group[<span class="st">'label3'</span>].isin([<span class="st">'Non-irrigated arable land'</span>, <span class="st">'Permanently irrigated land'</span>])]</span>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>arable_lands_surface_naz_1990_group <span class="op">=</span> pd.DataFrame(arable_lands_surface_naz_1990.groupby([<span class="st">'pro_com'</span>])[<span class="st">'surface_ha_1990'</span>].<span class="bu">sum</span>())</span>
@@ -8792,7 +8798,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb67-35"><a href="#cb67-35" aria-hidden="true" tabindex="-1"></a>focus_arable_lands_naz_df.insert(loc<span class="op">=</span><span class="dv">9</span>, column<span class="op">=</span><span class="st">'perc_2018'</span>, value<span class="op">=</span><span class="bu">round</span>(focus_arable_lands_naz_df.surface_ha_2018 <span class="op">/</span> focus_arable_lands_naz_df.sup_com_ha, <span class="dv">4</span>) <span class="op">*</span> <span class="dv">100</span>)</span>
 <span id="cb67-36"><a href="#cb67-36" aria-hidden="true" tabindex="-1"></a>focus_arable_lands_naz_df.insert(loc<span class="op">=</span><span class="dv">10</span>, column<span class="op">=</span><span class="st">'Perc.Diff. | 2018-2000'</span>, value<span class="op">=</span>(focus_arable_lands_naz_df.perc_2018 <span class="op">-</span> focus_arable_lands_naz_df.perc_2000))</span>
 <span id="cb67-37"><a href="#cb67-37" aria-hidden="true" tabindex="-1"></a>focus_arable_lands_naz_df.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb67-38"><a href="#cb67-38" aria-hidden="true" tabindex="-1"></a>focus_arable_lands_naz_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb67-38"><a href="#cb67-38" aria-hidden="true" tabindex="-1"></a>focus_arable_lands_naz_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="59">
 
@@ -9038,10 +9044,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="60">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Superfici in arretramento</span></span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>naz_reduction_arable_lands_area <span class="op">=</span> focus_arable_lands_naz_df.iloc[<span class="dv">0</span>:<span class="dv">10</span>]</span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>naz_reduction_arable_lands_area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>naz_reduction_arable_lands_area</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="60">
 
@@ -9267,11 +9273,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="61">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Superfici in avanzamento</span></span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>naz_increase_arable_lands_area <span class="op">=</span> focus_arable_lands_naz_df.iloc[<span class="op">-</span><span class="dv">10</span>:]</span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>naz_increase_arable_lands_area.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>naz_increase_arable_lands_area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>naz_increase_arable_lands_area</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="61">
 
@@ -9500,7 +9506,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="aree-bruciate-1">3.3.4 Aree bruciate</h3>
 <div class="cell" data-execution_count="62">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dati 1990</span></span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>burnt_surface_naz_1990 <span class="op">=</span> focus_naz_1990_group[focus_naz_1990_group[<span class="st">'label3'</span>].isin([<span class="st">'Burnt areas'</span>])]</span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>burnt_surface_naz_1990_group <span class="op">=</span> pd.DataFrame(burnt_surface_naz_1990.groupby([<span class="st">'pro_com'</span>])[<span class="st">'surface_ha_1990'</span>].<span class="bu">sum</span>())</span>
@@ -9538,7 +9544,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb70-35"><a href="#cb70-35" aria-hidden="true" tabindex="-1"></a>focus_burnt_naz_df.insert(loc<span class="op">=</span><span class="dv">9</span>, column<span class="op">=</span><span class="st">'perc_2018'</span>, value<span class="op">=</span><span class="bu">round</span>(focus_burnt_naz_df.surface_ha_2018 <span class="op">/</span> focus_burnt_naz_df.sup_com_ha, <span class="dv">4</span>) <span class="op">*</span> <span class="dv">100</span>)</span>
 <span id="cb70-36"><a href="#cb70-36" aria-hidden="true" tabindex="-1"></a>focus_burnt_naz_df.insert(loc<span class="op">=</span><span class="dv">10</span>, column<span class="op">=</span><span class="st">'Perc.Diff. | 2018-2000'</span>, value<span class="op">=</span>(focus_burnt_naz_df.perc_2018 <span class="op">-</span> focus_burnt_naz_df.perc_2000))</span>
 <span id="cb70-37"><a href="#cb70-37" aria-hidden="true" tabindex="-1"></a>focus_burnt_naz_df.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb70-38"><a href="#cb70-38" aria-hidden="true" tabindex="-1"></a>focus_burnt_naz_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb70-38"><a href="#cb70-38" aria-hidden="true" tabindex="-1"></a>focus_burnt_naz_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="62">
 
@@ -9787,7 +9793,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="aree-adibite-a-discarica-1">3.3.5 Aree adibite a discarica</h3>
 <div class="cell" data-execution_count="63">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dati 1990</span></span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>dump_surface_naz_1990 <span class="op">=</span> focus_naz_1990_group[focus_naz_1990_group[<span class="st">'label3'</span>].isin([<span class="st">'Dump sites'</span>])]</span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>dump_surface_naz_1990_group <span class="op">=</span> pd.DataFrame(dump_surface_naz_1990.groupby([<span class="st">'pro_com'</span>])[<span class="st">'surface_ha_1990'</span>].<span class="bu">sum</span>())</span>
@@ -9825,7 +9831,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb71-35"><a href="#cb71-35" aria-hidden="true" tabindex="-1"></a>focus_dump_naz_df.insert(loc<span class="op">=</span><span class="dv">9</span>, column<span class="op">=</span><span class="st">'perc_2018'</span>, value<span class="op">=</span><span class="bu">round</span>(focus_dump_naz_df.surface_ha_2018 <span class="op">/</span> focus_dump_naz_df.sup_com_ha, <span class="dv">4</span>) <span class="op">*</span> <span class="dv">100</span>)</span>
 <span id="cb71-36"><a href="#cb71-36" aria-hidden="true" tabindex="-1"></a>focus_dump_naz_df.insert(loc<span class="op">=</span><span class="dv">10</span>, column<span class="op">=</span><span class="st">'Perc.Diff. | 2018-2000'</span>, value<span class="op">=</span>(focus_dump_naz_df.perc_2018 <span class="op">-</span> focus_dump_naz_df.perc_2000))</span>
 <span id="cb71-37"><a href="#cb71-37" aria-hidden="true" tabindex="-1"></a>focus_dump_naz_df.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb71-38"><a href="#cb71-38" aria-hidden="true" tabindex="-1"></a>focus_dump_naz_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb71-38"><a href="#cb71-38" aria-hidden="true" tabindex="-1"></a>focus_dump_naz_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="63">
 
@@ -10071,7 +10077,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="cell" data-execution_count="64">
 <details>
-<summary>Code</summary>
+<summary>Codice</summary>
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dati 1990</span></span>
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>green_urban_surface_surface_naz_1990 <span class="op">=</span> focus_naz_1990_group[focus_naz_1990_group[<span class="st">'label3'</span>].isin([<span class="st">'Green urban areas'</span>])]</span>
 <span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>green_urban_surface_surface_naz_1990_group <span class="op">=</span> pd.DataFrame(green_urban_surface_surface_naz_1990.groupby([<span class="st">'pro_com'</span>])[<span class="st">'surface_ha_1990'</span>].<span class="bu">sum</span>())</span>
@@ -10109,7 +10115,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb72-35"><a href="#cb72-35" aria-hidden="true" tabindex="-1"></a>focus_green_urban_surface_naz_df.insert(loc<span class="op">=</span><span class="dv">9</span>, column<span class="op">=</span><span class="st">'perc_2018'</span>, value<span class="op">=</span><span class="bu">round</span>(focus_green_urban_surface_naz_df.surface_ha_2018 <span class="op">/</span> focus_green_urban_surface_naz_df.sup_com_ha, <span class="dv">4</span>) <span class="op">*</span> <span class="dv">100</span>)</span>
 <span id="cb72-36"><a href="#cb72-36" aria-hidden="true" tabindex="-1"></a>focus_green_urban_surface_naz_df.insert(loc<span class="op">=</span><span class="dv">10</span>, column<span class="op">=</span><span class="st">'Perc.Diff. | 2018-2000'</span>, value<span class="op">=</span>(focus_green_urban_surface_naz_df.perc_2018 <span class="op">-</span> focus_green_urban_surface_naz_df.perc_2000))</span>
 <span id="cb72-37"><a href="#cb72-37" aria-hidden="true" tabindex="-1"></a>focus_green_urban_surface_naz_df.sort_values(by<span class="op">=</span>[<span class="st">'Perc.Diff. | 2018-2000'</span>], ascending<span class="op">=</span><span class="va">False</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb72-38"><a href="#cb72-38" aria-hidden="true" tabindex="-1"></a>focus_green_urban_surface_naz_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb72-38"><a href="#cb72-38" aria-hidden="true" tabindex="-1"></a>focus_green_urban_surface_naz_df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="64">
 
@@ -10418,12 +10424,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copiato!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copiato!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -10514,7 +10520,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">Copyright 2022, Massimiliano Moraca</div>
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/massimilianomoraca">LinkedIn</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/MaxDragonheart">Github</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-right">Copyright 2022, Massimiliano Moraca</div>
   </div>
 </footer>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.269">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>PyGIS Blog</title>
+<title>PyGIS Blog - by Massimiliano Moraca - PyGIS Blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -37,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -49,15 +48,15 @@ ul.task-list li input[type="checkbox"] {
   "type": "overlay",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-no-results-text": "Nessun risultato",
+    "search-matching-documents-text": "documenti trovati",
+    "search-copy-link-title": "Copiare il link nella ricerca",
+    "search-hide-matches-text": "Nascondere i risultati aggiuntivi",
+    "search-more-match-text": "ci sono altri risultati in questo documento",
+    "search-more-matches-text": "ulteriori risultati in questo documento",
+    "search-clear-button-title": "Pulire",
+    "search-detached-cancel-button-title": "Cancellare",
+    "search-submit-button-title": "Inviare"
   }
 }</script>
 <script>
@@ -102,8 +101,11 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="././posts/images/logo.jpg" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">PyGIS Blog</span>
+    <span class="navbar-title">PyGIS Blog - by Massimiliano Moraca</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -125,6 +127,11 @@ ul.task-list li input[type="checkbox"] {
 </i> 
  <span class="menu-text"></span></a>
   </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://massimilianomoraca.it"><i class="bi bi-website" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
 </ul>
               <div class="quarto-toggle-container">
                   <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -143,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
       <h1 class="title">PyGIS Blog</h1>
-            <p class="subtitle lead">Manipolare i dati GIS con Python e non solo!</p>
+            <p class="subtitle lead">Manipolare i dati GIS con Python!</p>
                       </div>
   </div>
     
@@ -161,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="geoprocessing">geoprocessing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="line">line <span class="quarto-category-count">(2)</span></div><div class="category" data-category="point">point <span class="quarto-category-count">(3)</span></div><div class="category" data-category="raster">raster <span class="quarto-category-count">(1)</span></div><div class="category" data-category="vector">vector <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categorie</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Tutti <span class="quarto-category-count">(6)</span></div><div class="category" data-category="geoprocessing">geoprocessing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="line">line <span class="quarto-category-count">(2)</span></div><div class="category" data-category="point">point <span class="quarto-category-count">(3)</span></div><div class="category" data-category="raster">raster <span class="quarto-category-count">(1)</span></div><div class="category" data-category="vector">vector <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -172,21 +179,21 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
      <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
+     <select id="listing-listing-sort" class="form-select" aria-label="Ordinare per" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Ordinare per</option>
+       <option value="index" data-direction="asc">Predefinito</option>
          <option value="listing-title" data-direction="asc">
-          Title
+          Titolo
         </option>
          <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
+          Data - Meno recente
         </option>
          <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
+          Data - Più recente
         </option>
      </select>
   </div>
@@ -195,44 +202,49 @@ ul.task-list li input[type="checkbox"] {
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="line" data-listing-date-sort="1668898800000" data-listing-file-modified-sort="1668950920868" data-listing-reading-time-sort="1.335">
-<a href="./posts/trovare-la-linea-meno-lunga-in-una-lista/2022-11-20-linea-meno-lunga-in-una-lista.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="line" data-listing-date-sort="1668898800000" data-listing-file-modified-sort="1668952207023" data-listing-reading-time-sort="1.335">
+<div class="body">
+<a href="./posts/trovare-la-linea-meno-lunga-in-una-lista/2022-11-20-linea-meno-lunga-in-una-lista.html">
+<h3 class="no-anchor listing-title">
 Trovare la linea meno lunga in una lista di linee
-</h5>
-<div class="listing-reading-time card-text text-muted">
-1 min
+</h3>
+<div class="listing-subtitle">
+
 </div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('line'); return false;">
 line
 </div>
 </div>
-<div class="card-text listing-description">
-Mettiamo il caso che abbiamo una lista di linee: come troviamo quella meno lunga?
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Nov 20, 2022
-</div>
-</div>
-</div>
+<a href="./posts/trovare-la-linea-meno-lunga-in-una-lista/2022-11-20-linea-meno-lunga-in-una-lista.html">
+<div class="listing-description">
+<p>Mettiamo il caso che abbiamo una lista di linee: come troviamo quella meno lunga?</p>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="vector,geoprocessing" data-listing-date-sort="1661464800000" data-listing-file-modified-sort="1668950920884" data-listing-reading-time-sort="7.365">
-<a href="./posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Analisi della copertura del suolo in Italia dal 1990 al 2018 usando la CORINE Land Cover
-</h5>
-<div class="listing-reading-time card-text text-muted">
-7 min
+<div class="metadata">
+<a href="./posts/trovare-la-linea-meno-lunga-in-una-lista/2022-11-20-linea-meno-lunga-in-una-lista.html">
+<div class="listing-date">
+20 nov 2022
 </div>
+<div class="listing-reading-time">
+1 minuti
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="vector,geoprocessing" data-listing-date-sort="1661464800000" data-listing-file-modified-sort="1668952287460" data-listing-reading-time-sort="7.365">
+<div class="body">
+<a href="./posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia.html">
+<h3 class="no-anchor listing-title">
+Analisi della copertura del suolo in Italia dal 1990 al 2018 usando la CORINE Land Cover
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('vector'); return false;">
 vector
@@ -241,82 +253,97 @@ vector
 geoprocessing
 </div>
 </div>
-<div class="card-text listing-description">
-Vediamo come è cambiata la copertura del suolo in Italia dal 1990 al 2018 usando i dati della CORINE Land Cover.
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Aug 26, 2022
-</div>
-</div>
-</div>
+<a href="./posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia.html">
+<div class="listing-description">
+<p>Vediamo come è cambiata la copertura del suolo in Italia dal 1990 al 2018 usando i dati della CORINE Land Cover.</p>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="line" data-listing-date-sort="1653170400000" data-listing-file-modified-sort="1668950920744" data-listing-reading-time-sort="4.405">
-<a href="./posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Verificare il potenziale fotovoltaico di un tetto
-</h5>
-<div class="listing-reading-time card-text text-muted">
-4 min
+<div class="metadata">
+<a href="./posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia.html">
+<div class="listing-date">
+26 ago 2022
 </div>
+<div class="listing-reading-time">
+7 minuti
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="line" data-listing-date-sort="1653170400000" data-listing-file-modified-sort="1668952287336" data-listing-reading-time-sort="4.405">
+<div class="body">
+<a href="./posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto.html">
+<h3 class="no-anchor listing-title">
+Verificare il potenziale fotovoltaico di un tetto
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('line'); return false;">
 line
 </div>
 </div>
-<div class="card-text listing-description">
-Usando un software GIS è possibile stimare se un tetto è o meno idoneo per un impianto fotovoltaico. E’ possibile fare la stessa cosa in Python? Te lo dico qui!
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-May 22, 2022
-</div>
-</div>
-</div>
+<a href="./posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto.html">
+<div class="listing-description">
+<p>Usando un software GIS è possibile stimare se un tetto è o meno idoneo per un impianto fotovoltaico. E’ possibile fare la stessa cosa in Python? Te lo dico qui!</p>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="point" data-listing-date-sort="1650232800000" data-listing-file-modified-sort="1668950920712" data-listing-reading-time-sort="2.935">
-<a href="./posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Tagliare una linea con un punto
-</h5>
-<div class="listing-reading-time card-text text-muted">
-2 min
+<div class="metadata">
+<a href="./posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto.html">
+<div class="listing-date">
+22 mag 2022
 </div>
+<div class="listing-reading-time">
+4 minuti
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="point" data-listing-date-sort="1650232800000" data-listing-file-modified-sort="1668952287288" data-listing-reading-time-sort="2.935">
+<div class="body">
+<a href="./posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html">
+<h3 class="no-anchor listing-title">
+Tagliare una linea con un punto
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('point'); return false;">
 point
 </div>
 </div>
-<div class="card-text listing-description">
-Tagliare una linea con un punto non è un’attività banalissima da fare in Python, in questo nuovo post mostrerò tre possibili strade per farlo.
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Apr 18, 2022
-</div>
-</div>
-</div>
+<a href="./posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html">
+<div class="listing-description">
+<p>Tagliare una linea con un punto non è un’attività banalissima da fare in Python, in questo nuovo post mostrerò tre possibili strade per farlo.</p>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="point,raster" data-listing-date-sort="1649282400000" data-listing-file-modified-sort="1668950920692" data-listing-reading-time-sort="3.605">
-<a href="./posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Analisi di visibilità
-</h5>
-<div class="listing-reading-time card-text text-muted">
-3 min
+<div class="metadata">
+<a href="./posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html">
+<div class="listing-date">
+18 apr 2022
 </div>
+<div class="listing-reading-time">
+2 minuti
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="point,raster" data-listing-date-sort="1649282400000" data-listing-file-modified-sort="1668952287280" data-listing-reading-time-sort="3.605">
+<div class="body">
+<a href="./posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita.html">
+<h3 class="no-anchor listing-title">
+Analisi di visibilità
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('point'); return false;">
 point
@@ -325,48 +352,58 @@ point
 raster
 </div>
 </div>
-<div class="card-text listing-description">
-Un’analisi di visibilità consente di stabilire quali sono le porzioni di paesaggio visibili da un osservatore posto in un determinato luogo ed ad una determinata quota.
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Apr 7, 2022
-</div>
-</div>
-</div>
+<a href="./posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita.html">
+<div class="listing-description">
+<p>Un’analisi di visibilità consente di stabilire quali sono le porzioni di paesaggio visibili da un osservatore posto in un determinato luogo ed ad una determinata quota.</p>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="point" data-listing-date-sort="1648677600000" data-listing-file-modified-sort="1668950920720" data-listing-reading-time-sort="1.76">
-<a href="./posts/da-point-a-pointz/2022-03-31-da-point-a-pointz.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Da Point a PointZ
-</h5>
-<div class="listing-reading-time card-text text-muted">
-1 min
+<div class="metadata">
+<a href="./posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita.html">
+<div class="listing-date">
+7 apr 2022
 </div>
+<div class="listing-reading-time">
+3 minuti
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="point" data-listing-date-sort="1648677600000" data-listing-file-modified-sort="1668952287312" data-listing-reading-time-sort="1.76">
+<div class="body">
+<a href="./posts/da-point-a-pointz/2022-03-31-da-point-a-pointz.html">
+<h3 class="no-anchor listing-title">
+Da Point a PointZ
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('point'); return false;">
 point
 </div>
 </div>
-<div class="card-text listing-description">
-Con questo articolo ti spiegherò come convertire facilmente un vettore di punti 2D in uno 3D usando Python.
+<a href="./posts/da-point-a-pointz/2022-03-31-da-point-a-pointz.html">
+<div class="listing-description">
+<p>Con questo articolo ti spiegherò come convertire facilmente un vettore di punti 2D in uno 3D usando Python.</p>
 </div>
-<div class="card-attribution card-text-small end">
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/da-point-a-pointz/2022-03-31-da-point-a-pointz.html">
 <div class="listing-date">
-Mar 31, 2022
+31 mar 2022
 </div>
-</div>
-</div>
+<div class="listing-reading-time">
+1 minuti
 </div>
 </a>
 </div>
 </div>
+</div>
 <div class="listing-no-matching d-none">
-No matching items
+Nessun risultato
 </div>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -409,12 +446,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copiato!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copiato!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -505,7 +542,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">Copyright 2022, Massimiliano Moraca</div>
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/massimilianomoraca">LinkedIn</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/MaxDragonheart">Github</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-right">Copyright 2022, Massimiliano Moraca</div>
   </div>
 </footer>
 

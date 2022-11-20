@@ -3,25 +3,37 @@ project:
   output-dir: docs
 
 website:
-  title: "PyGIS Blog"
+  title: "PyGIS Blog - by Massimiliano Moraca"
   reader-mode: true
   # site-url: "https://pygisblog.massimilianomoraca.me"
   navbar:
+    logo: ./posts/images/logo.jpg
+    pinned: true
+    collapsed: true
     right:
       - about.qmd
       - icon: github
         href: https://github.com/
       - icon: twitter
         href: https://twitter.com
+      - icon: website
+        href: https://massimilianomoraca.it
   page-footer:
-    center: "Copyright 2022, Massimiliano Moraca"
+    right: "Copyright 2022, Massimiliano Moraca"
+    left:
+      - icon: linkedin
+        text: LinkedIn
+        href: https://www.linkedin.com/in/massimilianomoraca
+      - icon: github
+        text: Github
+        href: https://github.com/MaxDragonheart
     border: true
     background: light
   repo-url: https://github.com/MaxDragonheart/PyGIS-Blog
   # repo-actions: [edit, issue]
 format:
   html:
-    theme: cosmo
+    theme: superhero
     css: styles.css
 
 

@@ -1,6 +1,7 @@
 ---
 title: "About me"
 image: profile.jpg
+lang: it
 about:
   template: jolla
   links:

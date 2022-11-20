@@ -5,3 +5,9 @@ Le analisi in Python pubblicate le trovi [qui](https://pygisblog.massimilianomor
 
 Le future pubblicazioni le trovi [qui](https://github.com/MaxDragonheart/PyGIS-Blog/milestones).
 
+## Quarto tips
+Documentation [here](https://quarto.org/docs/guide/)
+
+Preview: `quarto preview`
+
+
