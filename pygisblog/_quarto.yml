@@ -5,7 +5,7 @@ project:
 website:
   title: "PyGIS Blog"
   reader-mode: true
-  # site-url: "https://pygisblog.massimilianomoraca.me"
+  site-url: "https://pygisblog.massimilianomoraca.me"
   favicon: ./site_logo.png
   google-analytics: G-NG119N5L8N
   open-graph:
