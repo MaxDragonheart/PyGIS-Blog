@@ -1,0 +1,17 @@
+---
+title: "PyGIS Blog"
+subtitle: "Manipolare i dati GIS con Python e non solo!"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: grid
+  categories: true
+  feed: true
+  fields: [date, title, description, categories, reading-time]
+  sort-ui: [title, date]
+  filter-ui: [title, description]
+page-layout: full
+title-block-banner: true
+---
+
+
