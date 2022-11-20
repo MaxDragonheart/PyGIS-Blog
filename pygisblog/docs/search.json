@@ -14,60 +14,18 @@
     "text": "Ordinare per\n       Predefinito\n         \n          Titolo\n        \n         \n          Data - Meno recente\n        \n         \n          Data - Più recente\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTrovare la linea meno lunga in una lista di linee\n\n\n\n\n\n\n\nline\n\n\n\n\nMettiamo il caso che abbiamo una lista di linee: come troviamo quella meno lunga?\n\n\n\n\n\n\n20 nov 2022\n\n\n1 minuti\n\n\n\n\n\n\n\n\nAnalisi della copertura del suolo in Italia dal 1990 al 2018 usando la CORINE Land Cover\n\n\n\n\n\n\n\nvector\n\n\ngeoprocessing\n\n\n\n\nVediamo come è cambiata la copertura del suolo in Italia dal 1990 al 2018 usando i dati della CORINE Land Cover.\n\n\n\n\n\n\n26 ago 2022\n\n\n7 minuti\n\n\n\n\n\n\n\n\nVerificare il potenziale fotovoltaico di un tetto\n\n\n\n\n\n\n\nline\n\n\n\n\nUsando un software GIS è possibile stimare se un tetto è o meno idoneo per un impianto fotovoltaico. E’ possibile fare la stessa cosa in Python? Te lo dico qui!\n\n\n\n\n\n\n22 mag 2022\n\n\n4 minuti\n\n\n\n\n\n\n\n\nTagliare una linea con un punto\n\n\n\n\n\n\n\npoint\n\n\n\n\nTagliare una linea con un punto non è un’attività banalissima da fare in Python, in questo nuovo post mostrerò tre possibili strade per farlo.\n\n\n\n\n\n\n18 apr 2022\n\n\n2 minuti\n\n\n\n\n\n\n\n\nAnalisi di visibilità\n\n\n\n\n\n\n\npoint\n\n\nraster\n\n\n\n\nUn’analisi di visibilità consente di stabilire quali sono le porzioni di paesaggio visibili da un osservatore posto in un determinato luogo ed ad una determinata quota.\n\n\n\n\n\n\n7 apr 2022\n\n\n3 minuti\n\n\n\n\n\n\n\n\nDa Point a PointZ\n\n\n\n\n\n\n\npoint\n\n\n\n\nCon questo articolo ti spiegherò come convertire facilmente un vettore di punti 2D in uno 3D usando Python.\n\n\n\n\n\n\n31 mar 2022\n\n\n1 minuti\n\n\n\n\n\n\nNessun risultato"
   },
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html",
-    "href": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html",
-    "title": "Tagliare una linea con un punto",
-    "section": "",
-    "text": "Questa volta l’argomento trattato non nasce da una attività simile fatta con QGIS come per gli altri post precedenti ma dalla soluzione ad un problema in cui mi sono imbattuto e che mi ha portato via un po’ di tempo con non pochi grattacapi!\nLa richiesta era semplice, all’apparenza, ma non avevo fatto i conti con i Floating Point problems. In pratica, avendo una linea ed un punto lontano da essa dovevo trovare la distanza minima tra punto e lina e spezzare la linea sul punto di contatto tra la congiungente tra punto e linea."
-  },
-  {
-    "objectID": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html#newsletter",
-    "href": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html#newsletter",
-    "title": "Tagliare una linea con un punto",
-    "section": "Newsletter",
-    "text": "Newsletter\nSe vuoi ricevere aggiornamenti sui prossimi articoli iscriviti alla newsletter!"
-  },
-  {
-    "objectID": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html#telegram",
-    "href": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html#telegram",
-    "title": "Tagliare una linea con un punto",
-    "section": "Telegram",
-    "text": "Telegram\nSegui il canale Telegram CaffèGIS - I GIS a supporto dei processi evolutivi territoriali per ricevere aggiornamenti su iniziative ed informazioni a tema GIS."
-  },
-  {
-    "objectID": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html#offrimi-una-birra",
-    "href": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html#offrimi-una-birra",
-    "title": "Tagliare una linea con un punto",
-    "section": "Offrimi una birra!",
-    "text": "Offrimi una birra!\nSe trovi interessanti i miei articoli offrimi una birra!\nAlla prossima!"
-  },
-  {
-    "objectID": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html#prima-di-iniziare",
-    "href": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html#prima-di-iniziare",
-    "title": "Tagliare una linea con un punto",
-    "section": "Prima di iniziare",
-    "text": "Prima di iniziare\n\nLibrerie\nPer raggiungere l’obiettivo userò le librerie che seguono:\n\n\nCodice\nfrom matplotlib import pyplot as plt\nfrom shapely import wkt\nfrom shapely.ops import substring, nearest_points, snap, split\nfrom shapely.geometry import Point, LineString\n\nimport warnings\nwarnings.filterwarnings('ignore')\nwarnings.simplefilter('ignore')\n\n\n\n\nFonti dati\n\n\nCodice\npoint = wkt.loads('POINT (437845.7257845374 4529752.584581757)')\nline = wkt.loads('LINESTRING (438260.8093535866 4528121.6968436185, 442844.8639858717 4531930.850183684)')\n\nfig, ax = plt.subplots(figsize=(10, 10))\nax.set_xlabel('X coordinate', fontsize=15)\nax.set_ylabel('Y coordinate', fontsize=15)\n\nax.scatter(\n    *point.xy,\n    label='Point',\n    s=100,\n    facecolor='orange',\n    edgecolor='black'\n)\nplt.plot(*line.xy, label='Line', color='blue')\n\nplt.legend()\n\nplt.show()"
-  },
-  {
     "objectID": "posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita.html",
     "href": "posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita.html",
     "title": "Analisi di visibilità",
     "section": "",
     "text": "L’analisi di visibilità è un argomento molto interessante da trattare con Python. In un mio articolo l’ho affrontata usando QGIS, qui oggi vediamo come raggiungere lo stesso obiettivo con Python."
+  },
+  {
+    "objectID": "posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita.html#prima-di-iniziare",
+    "href": "posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita.html#prima-di-iniziare",
+    "title": "Analisi di visibilità",
+    "section": "Prima di iniziare",
+    "text": "Prima di iniziare\n\nLibrerie\nPer raggiungere l’obiettivo userò le librerie che seguono:\n\n\nCodice\nimport pathlib\nimport geopandas as gpd\nimport rioxarray as rxr\nimport rasterio as rio\nfrom rasterio.plot import show\nimport matplotlib.pyplot as plt\nfrom xrspatial import hillshade, viewshed\nfrom xarray.plot import imshow\n\n\n\n\nFonti dati\nCome DEM ho usato un ritaglio del progetto DEM20 di ISPRA su cui ho posizionato con QGIS undici punti; nell’articolo del blog uso l’undicesimo, qui proverò ad usarli tutti.\n\n\nCodice\nsample_data = pathlib.Path.cwd().parent.joinpath('sample_data/viewshed')\ndem = sample_data.joinpath('ispra_dtm_20.tif')\npoints = sample_data.joinpath('poi.shp')"
   },
   {
     "objectID": "posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita.html#visualizzazione-dei-dati-grezzi",
@@ -110,6 +68,13 @@
     "title": "Verificare il potenziale fotovoltaico di un tetto",
     "section": "",
     "text": "Un po’ di tempo fa ho effettuato un’analisi finalizzata a stimare il potenziale fotovoltaico di un tetto usando QGIS. Con questo articolo voglio ripercorrere lo stesso flusso di lavoro usando però Python!"
+  },
+  {
+    "objectID": "posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto.html#prima-di-iniziare",
+    "href": "posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto.html#prima-di-iniziare",
+    "title": "Verificare il potenziale fotovoltaico di un tetto",
+    "section": "Prima di iniziare",
+    "text": "Prima di iniziare\n\nLibrerie\nPer raggiungere l’obiettivo userò le librerie che seguono:\n\n\nCodice\nimport pathlib\nimport geopandas as gpd\nimport rioxarray as rxr\nimport contextily as cx\nimport matplotlib.pyplot as plt\nfrom xrspatial.aspect import aspect\nfrom xrspatial.slope import slope\n\n\n\n\nFonti dati\n\n\nCodice\nsample_data = pathlib.Path.cwd().parent.joinpath('sample_data/photovoltaic_potential_analysis')\ndsm = sample_data.joinpath('dsm.tif')\nbuildings = sample_data.joinpath('buildings_footprint.shp')"
   },
   {
     "objectID": "posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto.html#visualizzazione-dei-dati-grezzi",
@@ -203,6 +168,13 @@
     "text": "Un po’ di tempo fa ho affrontato in un mio articolo il problema dell’aggiunta della coordinata altimetrica ad un dataset di punti usando QGIS. In questo JupyterNotebook affronterò il problema usando Python."
   },
   {
+    "objectID": "posts/da-point-a-pointz/2022-03-31-da-point-a-pointz.html#prima-di-iniziare",
+    "href": "posts/da-point-a-pointz/2022-03-31-da-point-a-pointz.html#prima-di-iniziare",
+    "title": "Da Point a PointZ",
+    "section": "Prima di iniziare",
+    "text": "Prima di iniziare\n\nLibrerie\nPer raggiungere l’obiettivo userò essenzialmente geopandas, shapely e rasterio. In verità tra gli import troverai anche pathlib e matplotlib ma non sono essenziali per la corretta riuscita del procedimento.\n\n\nCodice\nimport pathlib\n\nimport pandas as pd\nimport geopandas as gpd\nimport rasterio as rio\nfrom rasterio.plot import show, show_hist\nimport matplotlib.pyplot as plt\nfrom shapely.geometry import Point\n\n\n\n\nFonti dati\nCome DEM ho usato un tile del progetto TIN Italy a sua volta ritagliato e su cui ho generato con QGIS quattro punti random.\n\n\nCodice\nsample_data = pathlib.Path.cwd().parent.joinpath('sample_data/add_z')\ndem = sample_data.joinpath('clip_dem.tif')\npoints = sample_data.joinpath('points.shp')"
+  },
+  {
     "objectID": "posts/da-point-a-pointz/2022-03-31-da-point-a-pointz.html#newsletter",
     "href": "posts/da-point-a-pointz/2022-03-31-da-point-a-pointz.html#newsletter",
     "title": "Da Point a PointZ",
@@ -229,6 +201,13 @@
     "title": "Analisi della copertura del suolo in Italia dal 1990 al 2018 usando la CORINE Land Cover",
     "section": "",
     "text": "Qualche anno fa analizzai i dati del progetto CORINE Land Cover relativi alla Campania, focalizzandomi sui tre censimenti tra il 2000 ed il 2012. Oggi invece estenderò quell’analisi inserendo sia i dati del 1990 che gli ultimi disponibili attualmente, cioè quelli del 2018.\nL’analisi questa volta la farò usando Python e la estenderò al resto dell’Italia verso la fine."
+  },
+  {
+    "objectID": "posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia.html#prima-di-iniziare",
+    "href": "posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia.html#prima-di-iniziare",
+    "title": "Analisi della copertura del suolo in Italia dal 1990 al 2018 usando la CORINE Land Cover",
+    "section": "Prima di iniziare",
+    "text": "Prima di iniziare\n\nLibrerie\nPer raggiungere l’obiettivo userò le librerie che seguono:\n\n\nCodice\nimport pathlib\nimport geopandas as gpd\nimport pandas as pd\nfrom functools import reduce\nimport matplotlib.pyplot as plt\nfrom matplotlib.gridspec import GridSpec\n\nimport warnings\nwarnings.filterwarnings('ignore')\nwarnings.simplefilter('ignore')\n\n\n\n\nFonti dati\nHo rielaborato i dati CORINE Land Cover dal 1990 al 2018 inserendoli in un unico GeoPackage che è possibile scaricare da qui. I dati sono stati processati preventivamente usando PostGIS in modo da associare ai poligoni della CLC anche quelli dei Comuni italiani al 2022 dell’ISTAT. E’ stato indispensabile questo passaggio preventivo perchè ho dovuto correggere gli errori topologici sui dati ISTAT e, al momento, trovo molto più comodo correggere gli errori topologici tramite SQL piuttosto che con Python.\n\n\nCodice\nmain_folder = pathlib.Path('/home/max/Desktop/clc')\ndataset = main_folder.joinpath('clcitalia.gpkg')"
   },
   {
     "objectID": "posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia.html#grafici",
@@ -280,11 +259,53 @@
     "text": "Offrimi una birra!\nSe trovi interessanti i miei articoli offrimi una birra!\nAlla prossima!"
   },
   {
+    "objectID": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html",
+    "href": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html",
+    "title": "Tagliare una linea con un punto",
+    "section": "",
+    "text": "Questa volta l’argomento trattato non nasce da una attività simile fatta con QGIS come per gli altri post precedenti ma dalla soluzione ad un problema in cui mi sono imbattuto e che mi ha portato via un po’ di tempo con non pochi grattacapi!\nLa richiesta era semplice, all’apparenza, ma non avevo fatto i conti con i Floating Point problems. In pratica, avendo una linea ed un punto lontano da essa dovevo trovare la distanza minima tra punto e lina e spezzare la linea sul punto di contatto tra la congiungente tra punto e linea."
+  },
+  {
+    "objectID": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html#prima-di-iniziare",
+    "href": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html#prima-di-iniziare",
+    "title": "Tagliare una linea con un punto",
+    "section": "Prima di iniziare",
+    "text": "Prima di iniziare\n\nLibrerie\nPer raggiungere l’obiettivo userò le librerie che seguono:\n\n\nCodice\nfrom matplotlib import pyplot as plt\nfrom shapely import wkt\nfrom shapely.ops import substring, nearest_points, snap, split\nfrom shapely.geometry import Point, LineString\n\nimport warnings\nwarnings.filterwarnings('ignore')\nwarnings.simplefilter('ignore')\n\n\n\n\nFonti dati\n\n\nCodice\npoint = wkt.loads('POINT (437845.7257845374 4529752.584581757)')\nline = wkt.loads('LINESTRING (438260.8093535866 4528121.6968436185, 442844.8639858717 4531930.850183684)')\n\nfig, ax = plt.subplots(figsize=(10, 10))\nax.set_xlabel('X coordinate', fontsize=15)\nax.set_ylabel('Y coordinate', fontsize=15)\n\nax.scatter(\n    *point.xy,\n    label='Point',\n    s=100,\n    facecolor='orange',\n    edgecolor='black'\n)\nplt.plot(*line.xy, label='Line', color='blue')\n\nplt.legend()\n\nplt.show()"
+  },
+  {
+    "objectID": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html#newsletter",
+    "href": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html#newsletter",
+    "title": "Tagliare una linea con un punto",
+    "section": "Newsletter",
+    "text": "Newsletter\nSe vuoi ricevere aggiornamenti sui prossimi articoli iscriviti alla newsletter!"
+  },
+  {
+    "objectID": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html#telegram",
+    "href": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html#telegram",
+    "title": "Tagliare una linea con un punto",
+    "section": "Telegram",
+    "text": "Telegram\nSegui il canale Telegram CaffèGIS - I GIS a supporto dei processi evolutivi territoriali per ricevere aggiornamenti su iniziative ed informazioni a tema GIS."
+  },
+  {
+    "objectID": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html#offrimi-una-birra",
+    "href": "posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html#offrimi-una-birra",
+    "title": "Tagliare una linea con un punto",
+    "section": "Offrimi una birra!",
+    "text": "Offrimi una birra!\nSe trovi interessanti i miei articoli offrimi una birra!\nAlla prossima!"
+  },
+  {
     "objectID": "posts/trovare-la-linea-meno-lunga-in-una-lista/2022-11-20-linea-meno-lunga-in-una-lista.html",
     "href": "posts/trovare-la-linea-meno-lunga-in-una-lista/2022-11-20-linea-meno-lunga-in-una-lista.html",
     "title": "Trovare la linea meno lunga in una lista di linee",
     "section": "",
     "text": "Mettiamo il caso che abbiamo una lista di linee: come troviamo quella meno lunga?"
+  },
+  {
+    "objectID": "posts/trovare-la-linea-meno-lunga-in-una-lista/2022-11-20-linea-meno-lunga-in-una-lista.html#prima-di-iniziare",
+    "href": "posts/trovare-la-linea-meno-lunga-in-una-lista/2022-11-20-linea-meno-lunga-in-una-lista.html#prima-di-iniziare",
+    "title": "Trovare la linea meno lunga in una lista di linee",
+    "section": "Prima di iniziare",
+    "text": "Prima di iniziare\n\nLibrerie\nPer raggiungere l’obiettivo userò shapely, matplotlib e random; queste ultime due le ho usate solo per motivi di rappresentazione grafica dei dati.\n\n\nCodice\nfrom shapely import wkt\nfrom matplotlib import pyplot as plt\nimport random\n\n\n\n\nFonti dati\nUserò in questo piccolo esercizio quattro linee, ma dobbiamo immaginarci di essere di fronte alla generica situazione in cui abbiamo una lista di N linee e non possiamo di certo metterci a misurarle tutte.\n\n\nCodice\nline_0 = wkt.loads('LINESTRING (461179.6655721677 4507148.788223281, 461217.56786209624 4507181.537033379, 461236.3280996226 4507194.537878151, 461241.7247760045 4507197.640095252, 461258.8379542616 4507210.660701941, 461261.9432857035 4507219.791508417, 461270.90091201715 4507254.590010401, 461271.56385885156 4507303.918307676, 461273.67536588735 4507318.460376316, 461286.2322009634 4507358.346460313, 461302.55653224624 4507403.197152592, 461365.2492823085 4507485.060388609, 461480.4983426857 4507548.512415529, 461580.7367309019 4507618.493483591)')\nline_1 = wkt.loads('LINESTRING (461179.6655721677 4507148.788223281, 461217.56786209624 4507181.537033379, 461236.3280996226 4507194.537878151, 461241.7247760045 4507197.640095252, 461258.8379542616 4507210.660701941, 461261.9432857035 4507219.791508417, 461270.90091201715 4507254.590010401, 461271.56385885156 4507303.918307676, 461273.67536588735 4507318.460376316, 461286.2322009634 4507358.346460313, 461302.55653224624 4507403.197152592)')\nline_2 = wkt.loads('LINESTRING (461179.6655721677 4507148.788223281, 461217.56786209624 4507181.537033379, 461236.3280996226 4507194.537878151, 461241.7247760045 4507197.640095252, 461258.8379542616 4507210.660701941, 461261.9432857035 4507219.791508417, 461270.90091201715 4507254.590010401, 461271.56385885156 4507303.918307676, 461273.67536588735 4507318.460376316, 461286.2322009634 4507358.346460313, 461302.55653224624 4507403.197152592, 461365.2492823085 4507485.060388609)')\nline_3 = wkt.loads('LINESTRING (461179.6655721677 4507148.788223281, 461217.56786209624 4507181.537033379, 461236.3280996226 4507194.537878151, 461241.7247760045 4507197.640095252, 461258.8379542616 4507210.660701941, 461261.9432857035 4507219.791508417, 461270.90091201715 4507254.590010401, 461271.56385885156 4507303.918307676, 461273.67536588735 4507318.460376316, 461286.2322009634 4507358.346460313, 461302.55653224624 4507403.197152592, 461365.2492823085 4507485.060388609, 461480.4983426857 4507548.512415529)')\n\nline_list = [line_0, line_1, line_2, line_3]\n\nfig, ax = plt.subplots(figsize=(10, 10))\n\nfor position in range(len(line_list)):\n    distance = position * 5\n    color = f'{\"%06x\" % random.randint(0, 0xFFFFFF)}'\n    plt.plot(*line_list[position].parallel_offset(distance=distance).xy, label=f'Line {position}', color=f'#{color}')\n\n    plt.legend()\n\n\n\n\n\nNB: ho usato parallel_offset solo per motivi grafici. Le linee che ho usato in questo esercizio sono pezzi di una unica linea più lunga che rappresentati sarebbero andati in sovrapposizione nel grafico rendendo impossibile la loro visualizzazione."
   },
   {
     "objectID": "posts/trovare-la-linea-meno-lunga-in-una-lista/2022-11-20-linea-meno-lunga-in-una-lista.html#newsletter",
@@ -306,40 +327,5 @@
     "title": "Trovare la linea meno lunga in una lista di linee",
     "section": "Offrimi una birra!",
     "text": "Offrimi una birra!\nSe trovi interessanti i miei articoli offrimi una birra!\nAlla prossima!"
-  },
-  {
-    "objectID": "posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia.html#prima-di-iniziare",
-    "href": "posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia.html#prima-di-iniziare",
-    "title": "Analisi della copertura del suolo in Italia dal 1990 al 2018 usando la CORINE Land Cover",
-    "section": "Prima di iniziare",
-    "text": "Prima di iniziare\n\nLibrerie\nPer raggiungere l’obiettivo userò le librerie che seguono:\n\n\nCodice\nimport pathlib\nimport geopandas as gpd\nimport pandas as pd\nfrom functools import reduce\nimport matplotlib.pyplot as plt\nfrom matplotlib.gridspec import GridSpec\n\nimport warnings\nwarnings.filterwarnings('ignore')\nwarnings.simplefilter('ignore')\n\n\n\n\nFonti dati\nHo rielaborato i dati CORINE Land Cover dal 1990 al 2018 inserendoli in un unico GeoPackage che è possibile scaricare da qui. I dati sono stati processati preventivamente usando PostGIS in modo da associare ai poligoni della CLC anche quelli dei Comuni italiani al 2022 dell’ISTAT. E’ stato indispensabile questo passaggio preventivo perchè ho dovuto correggere gli errori topologici sui dati ISTAT e, al momento, trovo molto più comodo correggere gli errori topologici tramite SQL piuttosto che con Python.\n\n\nCodice\nmain_folder = pathlib.Path('/home/max/Desktop/clc')\ndataset = main_folder.joinpath('clcitalia.gpkg')"
-  },
-  {
-    "objectID": "posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita.html#prima-di-iniziare",
-    "href": "posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita.html#prima-di-iniziare",
-    "title": "Analisi di visibilità",
-    "section": "Prima di iniziare",
-    "text": "Prima di iniziare\n\nLibrerie\nPer raggiungere l’obiettivo userò le librerie che seguono:\n\n\nCodice\nimport pathlib\nimport geopandas as gpd\nimport rioxarray as rxr\nimport rasterio as rio\nfrom rasterio.plot import show\nimport matplotlib.pyplot as plt\nfrom xrspatial import hillshade, viewshed\nfrom xarray.plot import imshow\n\n\n\n\nFonti dati\nCome DEM ho usato un ritaglio del progetto DEM20 di ISPRA su cui ho posizionato con QGIS undici punti; nell’articolo del blog uso l’undicesimo, qui proverò ad usarli tutti.\n\n\nCodice\nsample_data = pathlib.Path.cwd().parent.joinpath('sample_data/viewshed')\ndem = sample_data.joinpath('ispra_dtm_20.tif')\npoints = sample_data.joinpath('poi.shp')"
-  },
-  {
-    "objectID": "posts/trovare-la-linea-meno-lunga-in-una-lista/2022-11-20-linea-meno-lunga-in-una-lista.html#prima-di-iniziare",
-    "href": "posts/trovare-la-linea-meno-lunga-in-una-lista/2022-11-20-linea-meno-lunga-in-una-lista.html#prima-di-iniziare",
-    "title": "Trovare la linea meno lunga in una lista di linee",
-    "section": "Prima di iniziare",
-    "text": "Prima di iniziare\n\nLibrerie\nPer raggiungere l’obiettivo userò shapely, matplotlib e random; queste ultime due le ho usate solo per motivi di rappresentazione grafica dei dati.\n\n\nCodice\nfrom shapely import wkt\nfrom matplotlib import pyplot as plt\nimport random\n\n\n\n\nFonti dati\nUserò in questo piccolo esercizio quattro linee, ma dobbiamo immaginarci di essere di fronte alla generica situazione in cui abbiamo una lista di N linee e non possiamo di certo metterci a misurarle tutte.\n\n\nCodice\nline_0 = wkt.loads('LINESTRING (461179.6655721677 4507148.788223281, 461217.56786209624 4507181.537033379, 461236.3280996226 4507194.537878151, 461241.7247760045 4507197.640095252, 461258.8379542616 4507210.660701941, 461261.9432857035 4507219.791508417, 461270.90091201715 4507254.590010401, 461271.56385885156 4507303.918307676, 461273.67536588735 4507318.460376316, 461286.2322009634 4507358.346460313, 461302.55653224624 4507403.197152592, 461365.2492823085 4507485.060388609, 461480.4983426857 4507548.512415529, 461580.7367309019 4507618.493483591)')\nline_1 = wkt.loads('LINESTRING (461179.6655721677 4507148.788223281, 461217.56786209624 4507181.537033379, 461236.3280996226 4507194.537878151, 461241.7247760045 4507197.640095252, 461258.8379542616 4507210.660701941, 461261.9432857035 4507219.791508417, 461270.90091201715 4507254.590010401, 461271.56385885156 4507303.918307676, 461273.67536588735 4507318.460376316, 461286.2322009634 4507358.346460313, 461302.55653224624 4507403.197152592)')\nline_2 = wkt.loads('LINESTRING (461179.6655721677 4507148.788223281, 461217.56786209624 4507181.537033379, 461236.3280996226 4507194.537878151, 461241.7247760045 4507197.640095252, 461258.8379542616 4507210.660701941, 461261.9432857035 4507219.791508417, 461270.90091201715 4507254.590010401, 461271.56385885156 4507303.918307676, 461273.67536588735 4507318.460376316, 461286.2322009634 4507358.346460313, 461302.55653224624 4507403.197152592, 461365.2492823085 4507485.060388609)')\nline_3 = wkt.loads('LINESTRING (461179.6655721677 4507148.788223281, 461217.56786209624 4507181.537033379, 461236.3280996226 4507194.537878151, 461241.7247760045 4507197.640095252, 461258.8379542616 4507210.660701941, 461261.9432857035 4507219.791508417, 461270.90091201715 4507254.590010401, 461271.56385885156 4507303.918307676, 461273.67536588735 4507318.460376316, 461286.2322009634 4507358.346460313, 461302.55653224624 4507403.197152592, 461365.2492823085 4507485.060388609, 461480.4983426857 4507548.512415529)')\n\nline_list = [line_0, line_1, line_2, line_3]\n\nfig, ax = plt.subplots(figsize=(10, 10))\n\nfor position in range(len(line_list)):\n    distance = position * 5\n    color = f'{\"%06x\" % random.randint(0, 0xFFFFFF)}'\n    plt.plot(*line_list[position].parallel_offset(distance=distance).xy, label=f'Line {position}', color=f'#{color}')\n\n    plt.legend()\n\n\n\n\n\nNB: ho usato parallel_offset solo per motivi grafici. Le linee che ho usato in questo esercizio sono pezzi di una unica linea più lunga che rappresentati sarebbero andati in sovrapposizione nel grafico rendendo impossibile la loro visualizzazione."
-  },
-  {
-    "objectID": "posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto.html#prima-di-iniziare",
-    "href": "posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto.html#prima-di-iniziare",
-    "title": "Verificare il potenziale fotovoltaico di un tetto",
-    "section": "Prima di iniziare",
-    "text": "Prima di iniziare\n\nLibrerie\nPer raggiungere l’obiettivo userò le librerie che seguono:\n\n\nCodice\nimport pathlib\nimport geopandas as gpd\nimport rioxarray as rxr\nimport contextily as cx\nimport matplotlib.pyplot as plt\nfrom xrspatial.aspect import aspect\nfrom xrspatial.slope import slope\n\n\n\n\nFonti dati\n\n\nCodice\nsample_data = pathlib.Path.cwd().parent.joinpath('sample_data/photovoltaic_potential_analysis')\ndsm = sample_data.joinpath('dsm.tif')\nbuildings = sample_data.joinpath('buildings_footprint.shp')"
-  },
-  {
-    "objectID": "posts/da-point-a-pointz/2022-03-31-da-point-a-pointz.html#prima-di-iniziare",
-    "href": "posts/da-point-a-pointz/2022-03-31-da-point-a-pointz.html#prima-di-iniziare",
-    "title": "Da Point a PointZ",
-    "section": "Prima di iniziare",
-    "text": "Prima di iniziare\n\nLibrerie\nPer raggiungere l’obiettivo userò essenzialmente geopandas, shapely e rasterio. In verità tra gli import troverai anche pathlib e matplotlib ma non sono essenziali per la corretta riuscita del procedimento.\n\n\nCodice\nimport pathlib\n\nimport pandas as pd\nimport geopandas as gpd\nimport rasterio as rio\nfrom rasterio.plot import show, show_hist\nimport matplotlib.pyplot as plt\nfrom shapely.geometry import Point\n\n\n\n\nFonti dati\nCome DEM ho usato un tile del progetto TIN Italy a sua volta ritagliato e su cui ho generato con QGIS quattro punti random.\n\n\nCodice\nsample_data = pathlib.Path.cwd().parent.joinpath('sample_data/add_z')\ndem = sample_data.joinpath('clip_dem.tif')\npoints = sample_data.joinpath('points.shp')"
   }
 ]

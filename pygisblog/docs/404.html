@@ -24,21 +24,21 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="/site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="/site_libs/quarto-nav/headroom.min.js"></script>
 <script src="/site_libs/clipboard/clipboard.min.js"></script>
 <script src="/site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="/site_libs/quarto-search/fuse.min.js"></script>
 <script src="/site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="/">
+<link href="/././site_logo.png" rel="icon" type="image/png">
 <script src="/site_libs/quarto-html/quarto.js"></script>
 <script src="/site_libs/quarto-html/popper.min.js"></script>
 <script src="/site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="/site_libs/quarto-html/anchor.min.js"></script>
 <link href="/site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="/site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="/site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="/site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="/site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="/site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -58,9 +58,22 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NG119N5L8N"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-NG119N5L8N', { 'anonymize_ip': true});
+</script>
 
 
 <link rel="stylesheet" href="/styles.css">
+<meta property="og:title" content="PyGIS Blog">
+<meta property="og:description" content="Manipolare i dati GIS con Python!">
+<meta property="og:image" content="project_logo.jpg">
+<meta property="og:site-name" content="PyGIS Blog">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -70,6 +83,9 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
+    <a href="/index.html" class="navbar-brand navbar-brand-logo">
+    <img src="/./site_logo.png" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="/index.html">
     <span class="navbar-title">PyGIS Blog</span>
     </a>
@@ -90,6 +106,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://massimilianomoraca.it"><i class="bi bi-website" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -273,7 +294,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">Copyright 2022, Massimiliano Moraca</div>
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/massimilianomoraca">LinkedIn</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/MaxDragonheart">Github</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-right">Copyright 2022, Massimiliano Moraca</div>
   </div>
 </footer>
 

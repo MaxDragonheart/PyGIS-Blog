@@ -10,4 +10,5 @@ Documentation [here](https://quarto.org/docs/guide/)
 
 Preview: `quarto preview`
 
+Render: `quarto render`
 
