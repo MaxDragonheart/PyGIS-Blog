@@ -4,6 +4,7 @@ project:
 
 website:
   title: "PyGIS Blog"
+  reader-mode: true
   # site-url: "https://pygisblog.massimilianomoraca.me"
   navbar:
     right:
@@ -12,6 +13,12 @@ website:
         href: https://github.com/
       - icon: twitter
         href: https://twitter.com
+  page-footer:
+    center: "Copyright 2022, Massimiliano Moraca"
+    border: true
+    background: light
+  repo-url: https://github.com/MaxDragonheart/PyGIS-Blog
+  # repo-actions: [edit, issue]
 format:
   html:
     theme: cosmo
