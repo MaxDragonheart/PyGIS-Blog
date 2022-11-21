@@ -1,1 +1,1 @@
-Sitemap: https://MaxDragonheart.github.io/PyGIS-Blog/sitemap.xml
+Sitemap: https://pygisblog.massimilianomoraca.me/sitemap.xml
