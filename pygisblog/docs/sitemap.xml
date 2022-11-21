@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://MaxDragonheart.github.io/PyGIS-Blog/about.html</loc>
-    <lastmod>2022-11-20T14:34:25.241Z</lastmod>
+    <loc>https://pygisblog.massimilianomoraca.me/about.html</loc>
+    <lastmod>2022-11-21T22:10:55.499Z</lastmod>
   </url>
   <url>
-    <loc>https://MaxDragonheart.github.io/PyGIS-Blog/index.html</loc>
-    <lastmod>2022-11-20T14:34:25.857Z</lastmod>
+    <loc>https://pygisblog.massimilianomoraca.me/index.html</loc>
+    <lastmod>2022-11-21T22:11:16.707Z</lastmod>
   </url>
   <url>
-    <loc>https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita.html</loc>
-    <lastmod>2022-11-20T14:34:26.301Z</lastmod>
+    <loc>https://pygisblog.massimilianomoraca.me/posts/2022-08-26/analisi-della-copertura-del-suolo-in-italia.html</loc>
+    <lastmod>2022-11-21T22:07:13.810Z</lastmod>
   </url>
   <url>
-    <loc>https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto.html</loc>
-    <lastmod>2022-11-20T14:34:26.797Z</lastmod>
+    <loc>https://pygisblog.massimilianomoraca.me/posts/2022-11-20/linea-meno-lunga-in-una-lista.html</loc>
+    <lastmod>2022-11-21T22:11:27.999Z</lastmod>
   </url>
   <url>
-    <loc>https://MaxDragonheart.github.io/PyGIS-Blog/posts/da-point-a-pointz/2022-03-31-da-point-a-pointz.html</loc>
-    <lastmod>2022-11-20T14:34:27.145Z</lastmod>
+    <loc>https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto.html</loc>
+    <lastmod>2022-11-21T22:07:14.674Z</lastmod>
   </url>
   <url>
-    <loc>https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia.html</loc>
-    <lastmod>2022-11-20T14:34:28.365Z</lastmod>
+    <loc>https://pygisblog.massimilianomoraca.me/posts/2022-03-31/da-point-a-pointz.html</loc>
+    <lastmod>2022-11-21T22:07:15.018Z</lastmod>
   </url>
   <url>
-    <loc>https://MaxDragonheart.github.io/PyGIS-Blog/posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html</loc>
-    <lastmod>2022-11-20T14:34:28.705Z</lastmod>
+    <loc>https://pygisblog.massimilianomoraca.me/posts/2022-04-07/analisi-di-visibilita.html</loc>
+    <lastmod>2022-11-21T22:07:15.466Z</lastmod>
   </url>
   <url>
-    <loc>https://MaxDragonheart.github.io/PyGIS-Blog/posts/trovare-la-linea-meno-lunga-in-una-lista/2022-11-20-linea-meno-lunga-in-una-lista.html</loc>
-    <lastmod>2022-11-20T14:34:28.989Z</lastmod>
+    <loc>https://pygisblog.massimilianomoraca.me/posts/2022-04-18/tagliare-una-linea-con-un-punto.html</loc>
+    <lastmod>2022-11-21T22:07:15.818Z</lastmod>
   </url>
 </urlset>

@@ -6,14 +6,14 @@
       version="2.0">
 <channel>
 <title>PyGIS Blog</title>
-<link>https://MaxDragonheart.github.io/PyGIS-Blog/index.html</link>
-<atom:link href="https://MaxDragonheart.github.io/PyGIS-Blog/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://pygisblog.massimilianomoraca.me/index.html</link>
+<atom:link href="https://pygisblog.massimilianomoraca.me/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.2.269</generator>
 <lastBuildDate>Sat, 19 Nov 2022 23:00:00 GMT</lastBuildDate>
 <item>
   <title>Trovare la linea meno lunga in una lista di linee</title>
-  <link>https://MaxDragonheart.github.io/PyGIS-Blog/posts/trovare-la-linea-meno-lunga-in-una-lista/2022-11-20-linea-meno-lunga-in-una-lista.html</link>
+  <link>https://pygisblog.massimilianomoraca.me/posts/2022-11-20/linea-meno-lunga-in-una-lista.html</link>
   <description><![CDATA[ 
 
 
@@ -57,7 +57,7 @@
 <span id="cb2-15">    plt.legend()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/trovare-la-linea-meno-lunga-in-una-lista/2022-11-20-linea-meno-lunga-in-una-lista_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-11-20/linea-meno-lunga-in-una-lista_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><strong>NB</strong>: ho usato <em><a href="https://shapely.readthedocs.io/en/stable/manual.html#object.parallel_offset">parallel_offset</a></em> solo per motivi grafici. Le linee che ho usato in questo esercizio sono pezzi di una unica linea più lunga che rappresentati sarebbero andati in sovrapposizione nel grafico rendendo impossibile la loro visualizzazione.</p>
@@ -104,7 +104,7 @@
 <span id="cb7-8">    plt.legend()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/trovare-la-linea-meno-lunga-in-una-lista/2022-11-20-linea-meno-lunga-in-una-lista_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-11-20/linea-meno-lunga-in-una-lista_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="6">
@@ -140,13 +140,13 @@
 
  ]]></description>
   <category>line</category>
-  <guid>https://MaxDragonheart.github.io/PyGIS-Blog/posts/trovare-la-linea-meno-lunga-in-una-lista/2022-11-20-linea-meno-lunga-in-una-lista.html</guid>
+  <guid>https://pygisblog.massimilianomoraca.me/posts/2022-11-20/linea-meno-lunga-in-una-lista.html</guid>
   <pubDate>Sat, 19 Nov 2022 23:00:00 GMT</pubDate>
-  <media:content url="https://MaxDragonheart.github.io/PyGIS-Blog/posts/trovare-la-linea-meno-lunga-in-una-lista/project_logo.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://pygisblog.massimilianomoraca.me/project_logo.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Analisi della copertura del suolo in Italia dal 1990 al 2018 usando la CORINE Land Cover</title>
-  <link>https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia.html</link>
+  <link>https://pygisblog.massimilianomoraca.me/posts/2022-08-26/analisi-della-copertura-del-suolo-in-italia.html</link>
   <description><![CDATA[ 
 
 
@@ -1134,7 +1134,7 @@
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2cfea3760&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-08-26/analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>E’ visibile abbastanza chiaramente un netto aumento delle superfici artificiali con un conseguente arretramento di quelle forestate e di quelle agricole. Le aree forestate tra il 1990 ed il 2018 hanno subito un arretramento quasi doppio rispetto a quelle agricole e le superfici artificiali sono quelle che hanno maggiormente <em>“beneficiato”</em> di questo arretramento complessivo delle due classi di CLC. Si potrebbe dire che l’urbanizzato ha eroso foreste ed aree agricole in quasi 30 anni.</p>
@@ -1325,7 +1325,7 @@
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2eb2bc4f0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-18-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-08-26/analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-18-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Scendendo di un livello, quindi andando ad approfondire di più il dato passando al secondo livello CLC, possiamo verificare i trend negativi a quali specifiche superfici fanno riferimento.</p>
@@ -1888,7 +1888,7 @@
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2df35bd90&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-20-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-08-26/analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-20-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Passando al livello tre della CLC, ho voluto graficare la sola differenza tra 1990 e 2018 per motivi di leggibilità del grafico. In termini di aumento di copertura del suolo c’è l’avanzamento, quasi identico, delle piccole aree destinate a colture annuali e delle aree con vegetazione frammentata. A seguire ci sono le aree urbane discontinue e quelle occupate da orti, vigneti e alberi da frutto.</p>
@@ -2756,7 +2756,7 @@
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2d646e0d0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-26-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-08-26/analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-26-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Onestamente non so come interpretare l’arretramento delle aree artificiali, andrebbe fatta una ulteriore analisi per valutare se sono Comuni che si sono spopolati in quasi trenta anni.</p>
@@ -3467,7 +3467,7 @@
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2d401af40&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-30-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-08-26/analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-30-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>E’ significativo per me che nella top 10 del decremento di aree forestate ci siano Terzigno, Ercolano e Trecase. Lo è perchè sono tra i Comuni ricadenti nell’area del Parco Nazionale del Vesuvio che hanno subito danni al patrimonio boschivo a causa dell’<a href="https://massimilianomoraca.it/blog/gis/analisi-temporale-sullarea-degli-incendi-del-vesuvio/">incendio che ci fu nel 2017</a>.</p>
@@ -4179,7 +4179,7 @@
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2d5ed0fd0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-34-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-08-26/analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-34-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Tra i Comuni con maggior aumento della aree articifiali abbiamo visto che c’è Volla che è tra i Comuni con maggior decremento delle aree agricole. Poco sopra ho fatto una riflessione sul perchè della redistribuzione del livello 1 della CLC. <strong>Due indizi non fanno una prova, ma tre?</strong></p>
@@ -6133,7 +6133,7 @@
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2d08eedc0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-46-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-08-26/analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-46-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>In questo livello di CLC si nota una certa somiglianza con ciò che abbiamo visto per la Campania: aree artificiali in aumento, aree forestate ed agricole in regressione.</p>
@@ -6322,7 +6322,7 @@
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2cdb88ee0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-48-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-08-26/analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-48-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Anche qui c’è una certa somiglianza con ciò che accade in Campania.</p>
@@ -6946,7 +6946,7 @@
 <pre><code>&lt;matplotlib.legend.Legend at 0x7fe2d2f7ddc0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-50-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-08-26/analisi-della-copertura-del-suolo-in-italia_files/figure-html/cell-50-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Purtroppo il <em>“trend campano”</em> è visibile anche qui. Il fatto è che ciò che accade a scala nazionale si ripete a scala regionale e scommetto anche provinciale in un po’ tutto il territorio italiano.</p>
@@ -10252,13 +10252,13 @@
  ]]></description>
   <category>vector</category>
   <category>geoprocessing</category>
-  <guid>https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-della-copertura-del-suolo-in-italia/2022-08-26-analisi-della-copertura-del-suolo-in-italia.html</guid>
+  <guid>https://pygisblog.massimilianomoraca.me/posts/2022-08-26/analisi-della-copertura-del-suolo-in-italia.html</guid>
   <pubDate>Thu, 25 Aug 2022 22:00:00 GMT</pubDate>
-  <media:content url="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-della-copertura-del-suolo-in-italia/project_logo.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://pygisblog.massimilianomoraca.me/project_logo.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Verificare il potenziale fotovoltaico di un tetto</title>
-  <link>https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto.html</link>
+  <link>https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto.html</link>
   <description><![CDATA[ 
 
 
@@ -10840,7 +10840,7 @@ Attributes:
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="6">
@@ -10854,7 +10854,7 @@ Attributes:
 <pre><code>Text(0.5, 1.0, 'Area of Interest')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -10882,7 +10882,7 @@ Attributes:
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-8-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-8-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>A questo punto posso concentrarmi solo sui tetti calcolando la loro pendenza.</p>
@@ -10905,7 +10905,7 @@ Attributes:
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Le pendenze fanno riferimento al piano cartografico. Quindi 0° fa riferimento ad un tetto piano, con 85.8° di pendenza abbiamo un tetto quasi verticale e quindi ortogonale al piano cartografico.</p>
@@ -10933,7 +10933,7 @@ Attributes:
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-10-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-10-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -10958,7 +10958,7 @@ Attributes:
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-11-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-11-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -10985,10 +10985,10 @@ Attributes:
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-12-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-12-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<p>L’esposizione ottimale è il SUD(<em>tra 135° e 225°</em>), quella sicuramente da scartare è il NORD(<em>tra 0° e 45°, tra 315° e 360°</em>). <img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/https:/as1.ftcdn.net/v2/jpg/01/74/27/88/500_F_174278831_b9BzZLu9tZNFKyT72vxL4TQuuEXmc7e4.jpg" title="Rosa dei venti | Immagine concessa con Licenza Standard Adobe" class="img-fluid" alt="Rosa dei venti"></p>
+<p>L’esposizione ottimale è il SUD(<em>tra 135° e 225°</em>), quella sicuramente da scartare è il NORD(<em>tra 0° e 45°, tra 315° e 360°</em>). <img src="https://pygisblog.massimilianomoraca.me/posts/2022-05-22/https:/as1.ftcdn.net/v2/jpg/01/74/27/88/500_F_174278831_b9BzZLu9tZNFKyT72vxL4TQuuEXmc7e4.jpg" title="Rosa dei venti | Immagine concessa con Licenza Standard Adobe" class="img-fluid" alt="Rosa dei venti"></p>
 <p>Io andrò ad estrarre solo i tetti con esposizione da <strong>EST</strong> a <strong>SUD-EST</strong>, da <strong>SUD-EST</strong> a <strong>SUD-OVEST</strong> ad <strong>OVEST</strong>, quindi: - 90° - 135° - 135° - 225° - 225° - 270°</p>
 <section id="tetti-esposti-a-sud" class="level2">
 <h2 class="anchored" data-anchor-id="tetti-esposti-a-sud">3.1 Tetti esposti a SUD</h2>
@@ -11010,7 +11010,7 @@ Attributes:
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-13-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-13-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -11034,7 +11034,7 @@ Attributes:
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-14-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-14-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -11058,7 +11058,7 @@ Attributes:
 <pre><code>Text(0.5, 0, 'X coordinates (meters)')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-15-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-15-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -11092,7 +11092,7 @@ Attributes:
 <pre><code>Text(0.5, 1.0, "Rooftop's slope")</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="16">
@@ -11118,7 +11118,7 @@ Attributes:
 <pre><code>Text(0.5, 1.0, "Rooftop's aspect")</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-17-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-17-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -11149,7 +11149,7 @@ Attributes:
 <pre><code>Text(0.5, 1.0, 'Target rooftops based on aspect')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-18-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-18-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="18">
@@ -11168,7 +11168,7 @@ Attributes:
 <pre><code>Text(0.5, 1.0, 'Target rooftops')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-19-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-19-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -11561,7 +11561,7 @@ Attributes:
 <pre><code>Text(0.5, 1.0, 'Energy production map KWP')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -11590,13 +11590,13 @@ Attributes:
 
  ]]></description>
   <category>line</category>
-  <guid>https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/2022-05-22-verificare-il-potenziale-fotovoltaico-di-un-tetto.html</guid>
+  <guid>https://pygisblog.massimilianomoraca.me/posts/2022-05-22/verificare-il-potenziale-fotovoltaico-di-un-tetto.html</guid>
   <pubDate>Sat, 21 May 2022 22:00:00 GMT</pubDate>
-  <media:content url="https://MaxDragonheart.github.io/PyGIS-Blog/posts/verificare-il-potenziale-fotovoltaico-di-un-tetto/project_logo.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://pygisblog.massimilianomoraca.me/project_logo.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Tagliare una linea con un punto</title>
-  <link>https://MaxDragonheart.github.io/PyGIS-Blog/posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html</link>
+  <link>https://pygisblog.massimilianomoraca.me/posts/2022-04-18/tagliare-una-linea-con-un-punto.html</link>
   <description><![CDATA[ 
 
 
@@ -11649,7 +11649,7 @@ Attributes:
 <span id="cb2-19">plt.show()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto_files/figure-html/cell-3-output-1.png" width="857" height="820"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-18/tagliare-una-linea-con-un-punto_files/figure-html/cell-3-output-1.png" width="857" height="820"></p>
 </div>
 </div>
 </section>
@@ -11731,7 +11731,7 @@ Attributes:
 <span id="cb8-25">plt.show()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto_files/figure-html/cell-8-output-1.png" width="857" height="820"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-18/tagliare-una-linea-con-un-punto_files/figure-html/cell-8-output-1.png" width="857" height="820"></p>
 </div>
 </div>
 </section>
@@ -11782,7 +11782,7 @@ Attributes:
 <span id="cb12-17">plt.show()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto_files/figure-html/cell-11-output-1.png" width="857" height="820"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-18/tagliare-una-linea-con-un-punto_files/figure-html/cell-11-output-1.png" width="857" height="820"></p>
 </div>
 </div>
 <p>L’altra linea ed il punto di taglio si estraggono facilmente con procedimenti simili a quelli precedenti.</p>
@@ -11824,7 +11824,7 @@ Attributes:
 <span id="cb13-29">plt.show()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto_files/figure-html/cell-12-output-1.png" width="857" height="820"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-18/tagliare-una-linea-con-un-punto_files/figure-html/cell-12-output-1.png" width="857" height="820"></p>
 </div>
 </div>
 </section>
@@ -11852,13 +11852,13 @@ Attributes:
 
  ]]></description>
   <category>point</category>
-  <guid>https://MaxDragonheart.github.io/PyGIS-Blog/posts/tagliare-una-linea-con-un-punto/2022-04-18-tagliare-una-linea-con-un-punto.html</guid>
+  <guid>https://pygisblog.massimilianomoraca.me/posts/2022-04-18/tagliare-una-linea-con-un-punto.html</guid>
   <pubDate>Sun, 17 Apr 2022 22:00:00 GMT</pubDate>
-  <media:content url="https://MaxDragonheart.github.io/PyGIS-Blog/posts/tagliare-una-linea-con-un-punto/project_logo.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://pygisblog.massimilianomoraca.me/project_logo.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Analisi di visibilità</title>
-  <link>https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita.html</link>
+  <link>https://pygisblog.massimilianomoraca.me/posts/2022-04-07/analisi-di-visibilita.html</link>
   <description><![CDATA[ 
 
 
@@ -12404,7 +12404,7 @@ Attributes:
 <span id="cb7-33">plt.show()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-07/analisi-di-visibilita_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -12481,7 +12481,7 @@ Attributes:
 <span id="cb9-35">plt.show()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-07/analisi-di-visibilita_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Per una migliore resa visiva ho inserito la hillshade sotto al DEM tematizzato. Questa volta anzicchè usare la funzione <code>show</code> di <em>rasterio</em> ho preferito usare <code>imshow</code> di <em>xarray</em> per sperimentarla un po’ visto che non l’avevo mai usata. E’ interessante il fatto che aggiunga automaticamente la <code>colorbar</code> per ogni raster, devo capire come fare in modo che non venga visualizzata sempre e come disporla in altro modo.</p>
@@ -13309,7 +13309,7 @@ Attributes:
 <span id="cb14-3">plt.show()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-07/analisi-di-visibilita_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Analisi effettuata, ora sono curioso di vedere quali aree ricadono nel campo visivo dell’osservatore.</p>
@@ -13352,7 +13352,7 @@ Attributes:
 <span id="cb15-34">plt.show()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-07/analisi-di-visibilita_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Le aree in tonalità di giallo sono quelle che vede l’osservatore, in questo caso vede benissimo Positano, gli isolotti del Gallo e di Vetara ma anche parte del Golfo di Napoli, forse anche il Vesuvio.</p>
@@ -13382,7 +13382,7 @@ Attributes:
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <figure class="figure">
-<img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/point_1.jpg" title="Point 1 - quota 875 metri" class="img-fluid figure-img">
+<img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-07/point_1.jpg" title="Point 1 - quota 875 metri" class="img-fluid figure-img">
 </figure>
 <p></p><figcaption class="figure-caption">Point 1 - quota 875 metri</figcaption><p></p>
 </figure>
@@ -13390,7 +13390,7 @@ Attributes:
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <figure class="figure">
-<img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/point_2.jpg" title="Point 2 - quota 413 metri" class="img-fluid figure-img">
+<img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-07/point_2.jpg" title="Point 2 - quota 413 metri" class="img-fluid figure-img">
 </figure>
 <p></p><figcaption class="figure-caption">Point 2 - quota 413 metri</figcaption><p></p>
 </figure>
@@ -13398,7 +13398,7 @@ Attributes:
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <figure class="figure">
-<img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/point_3.jpg" title="Point 3 - quota 106 metri" class="img-fluid figure-img">
+<img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-07/point_3.jpg" title="Point 3 - quota 106 metri" class="img-fluid figure-img">
 </figure>
 <p></p><figcaption class="figure-caption">Point 3 - quota 106 metri</figcaption><p></p>
 </figure>
@@ -13406,7 +13406,7 @@ Attributes:
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <figure class="figure">
-<img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/point_4.jpg" title="Point 4 - quota 0 metri" class="img-fluid figure-img">
+<img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-07/point_4.jpg" title="Point 4 - quota 0 metri" class="img-fluid figure-img">
 </figure>
 <p></p><figcaption class="figure-caption">Point 4 - quota 0 metri</figcaption><p></p>
 </figure>
@@ -13414,7 +13414,7 @@ Attributes:
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <figure class="figure">
-<img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/point_5.jpg" title="Point 5 - quota 0 metri" class="img-fluid figure-img">
+<img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-07/point_5.jpg" title="Point 5 - quota 0 metri" class="img-fluid figure-img">
 </figure>
 <p></p><figcaption class="figure-caption">Point 5 - quota 0 metri</figcaption><p></p>
 </figure>
@@ -13422,7 +13422,7 @@ Attributes:
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <figure class="figure">
-<img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/point_6.jpg" title="Point 6 - quota 475 metri" class="img-fluid figure-img">
+<img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-07/point_6.jpg" title="Point 6 - quota 475 metri" class="img-fluid figure-img">
 </figure>
 <p></p><figcaption class="figure-caption">Point 6 - quota 475 metri</figcaption><p></p>
 </figure>
@@ -13430,7 +13430,7 @@ Attributes:
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <figure class="figure">
-<img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/point_7.jpg" title="Point 7 - quota 0 metri" class="img-fluid figure-img">
+<img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-07/point_7.jpg" title="Point 7 - quota 0 metri" class="img-fluid figure-img">
 </figure>
 <p></p><figcaption class="figure-caption">Point 7 - quota 0 metri</figcaption><p></p>
 </figure>
@@ -13438,7 +13438,7 @@ Attributes:
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <figure class="figure">
-<img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/point_8.jpg" title="Point 8 - quota 1225 metri" class="img-fluid figure-img">
+<img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-07/point_8.jpg" title="Point 8 - quota 1225 metri" class="img-fluid figure-img">
 </figure>
 <p></p><figcaption class="figure-caption">Point 8 - quota 1225 metri</figcaption><p></p>
 </figure>
@@ -13446,7 +13446,7 @@ Attributes:
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <figure class="figure">
-<img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/point_9.jpg" title="Point 9 - quota 0 metri" class="img-fluid figure-img">
+<img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-07/point_9.jpg" title="Point 9 - quota 0 metri" class="img-fluid figure-img">
 </figure>
 <p></p><figcaption class="figure-caption">Point 9 - quota 0 metri</figcaption><p></p>
 </figure>
@@ -13454,7 +13454,7 @@ Attributes:
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <figure class="figure">
-<img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/point_10.jpg" title="Point 10 - quota 0 metri" class="img-fluid figure-img">
+<img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-07/point_10.jpg" title="Point 10 - quota 0 metri" class="img-fluid figure-img">
 </figure>
 <p></p><figcaption class="figure-caption">Point 10 - quota 0 metri</figcaption><p></p>
 </figure>
@@ -13462,7 +13462,7 @@ Attributes:
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <figure class="figure">
-<img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/point_11.jpg" title="Point 11 - quota 450 metri" class="img-fluid figure-img">
+<img src="https://pygisblog.massimilianomoraca.me/posts/2022-04-07/point_11.jpg" title="Point 11 - quota 450 metri" class="img-fluid figure-img">
 </figure>
 <p></p><figcaption class="figure-caption">Point 11 - quota 450 metri</figcaption><p></p>
 </figure>
@@ -13492,13 +13492,13 @@ Attributes:
  ]]></description>
   <category>point</category>
   <category>raster</category>
-  <guid>https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/2022-04-07-analisi-di-visibilita.html</guid>
+  <guid>https://pygisblog.massimilianomoraca.me/posts/2022-04-07/analisi-di-visibilita.html</guid>
   <pubDate>Wed, 06 Apr 2022 22:00:00 GMT</pubDate>
-  <media:content url="https://MaxDragonheart.github.io/PyGIS-Blog/posts/analisi-di-visibilita/project_logo.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://pygisblog.massimilianomoraca.me/project_logo.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Da Point a PointZ</title>
-  <link>https://MaxDragonheart.github.io/PyGIS-Blog/posts/da-point-a-pointz/2022-03-31-da-point-a-pointz.html</link>
+  <link>https://pygisblog.massimilianomoraca.me/posts/2022-03-31/da-point-a-pointz.html</link>
   <description><![CDATA[ 
 
 
@@ -13593,7 +13593,7 @@ Attributes:
 <pre><code>&lt;AxesSubplot:&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/da-point-a-pointz/2022-03-31-da-point-a-pointz_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-03-31/da-point-a-pointz_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="5">
@@ -13709,7 +13709,7 @@ dtype: bool</code></pre>
 <span id="cb13-5">)</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/da-point-a-pointz/2022-03-31-da-point-a-pointz_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-03-31/da-point-a-pointz_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>&lt;AxesSubplot:&gt;</code></pre>
@@ -13726,7 +13726,7 @@ dtype: bool</code></pre>
 <span id="cb15-6">)</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="https://MaxDragonheart.github.io/PyGIS-Blog/posts/da-point-a-pointz/2022-03-31-da-point-a-pointz_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+<p><img src="https://pygisblog.massimilianomoraca.me/posts/2022-03-31/da-point-a-pointz_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>L’istogramma delle quote ci consente di capire che c’è una forte presenza di quote zero che corrispondono all’azzurro del raster precedentemente stampato.</p>
@@ -14326,9 +14326,9 @@ Attributes:
 
  ]]></description>
   <category>point</category>
-  <guid>https://MaxDragonheart.github.io/PyGIS-Blog/posts/da-point-a-pointz/2022-03-31-da-point-a-pointz.html</guid>
+  <guid>https://pygisblog.massimilianomoraca.me/posts/2022-03-31/da-point-a-pointz.html</guid>
   <pubDate>Wed, 30 Mar 2022 22:00:00 GMT</pubDate>
-  <media:content url="https://MaxDragonheart.github.io/PyGIS-Blog/posts/da-point-a-pointz/project_logo.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://pygisblog.massimilianomoraca.me/project_logo.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

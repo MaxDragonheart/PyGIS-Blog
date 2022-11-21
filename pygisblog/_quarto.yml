@@ -19,10 +19,8 @@ website:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
-      - icon: website
+        href: https://github.com/MaxDragonheart
+      - icon: globe2
         href: https://massimilianomoraca.it
   page-footer:
     right: "Copyright 2022, Massimiliano Moraca"
@@ -33,6 +31,9 @@ website:
       - icon: github
         text: Github
         href: https://github.com/MaxDragonheart
+      - icon: globe2
+        text: Web Site
+        href: https://massimilianomoraca.it
     border: true
     background: light
   repo-url: https://github.com/MaxDragonheart/PyGIS-Blog
