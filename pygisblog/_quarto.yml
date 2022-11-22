@@ -4,10 +4,12 @@ project:
 
 website:
   title: "PyGIS Blog"
-  reader-mode: true
   site-url: "https://pygisblog.massimilianomoraca.me"
+  description: "Manipolare i dati GIS con Python!"
+  reader-mode: true
   favicon: ./site_logo.png
   google-analytics: G-NG119N5L8N
+  page-navigation: true
   open-graph:
     title: "PyGIS Blog"
     description: "Manipolare i dati GIS con Python!"
@@ -22,6 +24,8 @@ website:
         href: https://github.com/MaxDragonheart
       - icon: globe2
         href: https://massimilianomoraca.it
+      - icon: rss
+        href: index.xml
   page-footer:
     right: "Copyright 2022, Massimiliano Moraca"
     left:
@@ -37,10 +41,9 @@ website:
     border: true
     background: light
   repo-url: https://github.com/MaxDragonheart/PyGIS-Blog
-  # repo-actions: [edit, issue]
 format:
   html:
-    theme: superhero
+    theme: sandstone
     css: styles.css
 
 
