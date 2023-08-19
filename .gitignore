@@ -4,10 +4,5 @@
 # Poetry
 poetry.lock
 
-# Quarto
-pygisblog/docs/
-pygisblog/.quarto/
-pygisblog/_site/
-
 # PyGIS Blog
 output_folder/
