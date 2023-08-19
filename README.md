@@ -10,3 +10,5 @@ Documentation [here](https://quarto.org/docs/guide/)
 
 Convert notebook to html: `jupyter nbconvert --to html notebook.ipynb`
 
+It's possible to use `jupyter nbconvert --to html *.ipynb` for convert all notebooks in the folder.
+
