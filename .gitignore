@@ -1,2 +1,8 @@
 # IDE
 .idea
+
+# Poetry
+poetry.lock
+
+# Quarto
+pygisblog/docs

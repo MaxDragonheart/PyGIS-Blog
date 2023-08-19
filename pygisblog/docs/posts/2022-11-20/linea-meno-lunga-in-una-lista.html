@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Mettiamo il caso che abbiamo una lista di linee: come troviamo quella meno lunga?">
+
+<title>PyGIS Blog - Trovare la linea meno lunga in una lista di linee</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../.././site_logo.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Nessun risultato",
+    "search-matching-documents-text": "documenti trovati",
+    "search-copy-link-title": "Copiare il link nella ricerca",
+    "search-hide-matches-text": "Nascondere i risultati aggiuntivi",
+    "search-more-match-text": "ci sono altri risultati in questo documento",
+    "search-more-matches-text": "ulteriori risultati in questo documento",
+    "search-clear-button-title": "Pulire",
+    "search-detached-cancel-button-title": "Cancellare",
+    "search-submit-button-title": "Inviare",
+    "search-label": "Ricerca"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-NG119N5L8N"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-NG119N5L8N', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Trovare la linea meno lunga in una lista di linee">
+<meta property="og:description" content="Mettiamo il caso che abbiamo una lista di linee: come troviamo quella meno lunga?">
+<meta property="og:image" content="https://pygisblog.massimilianomoraca.me/project_logo.jpg">
+<meta property="og:site-name" content="PyGIS Blog">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../.././site_logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">PyGIS Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Ricerca"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Attiva/disattiva la navigazione" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About me</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/MaxDragonheart" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://massimilianomoraca.it" rel="" target=""><i class="bi bi-globe2" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml" rel="" target=""><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Attiva/disattiva la modalità lettore">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Trovare la linea meno lunga in una lista di linee</h1>
+                  <div>
+        <div class="description">
+          Mettiamo il caso che abbiamo una lista di linee: come troviamo quella meno lunga?
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">line</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">20 novembre 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">In questa pagina</h2>
+   
+  <ul>
+  <li><a href="#prima-di-iniziare" id="toc-prima-di-iniziare" class="nav-link active" data-scroll-target="#prima-di-iniziare">Prima di iniziare</a>
+  <ul class="collapse">
+  <li><a href="#librerie" id="toc-librerie" class="nav-link" data-scroll-target="#librerie">Librerie</a></li>
+  <li><a href="#fonti-dati" id="toc-fonti-dati" class="nav-link" data-scroll-target="#fonti-dati">Fonti dati</a></li>
+  </ul></li>
+  <li><a href="#misurare" id="toc-misurare" class="nav-link" data-scroll-target="#misurare">Misurare!</a></li>
+  <li><a href="#conclusione" id="toc-conclusione" class="nav-link" data-scroll-target="#conclusione">Conclusione</a>
+  <ul class="collapse">
+  <li><a href="#newsletter" id="toc-newsletter" class="nav-link" data-scroll-target="#newsletter">Newsletter</a></li>
+  <li><a href="#telegram" id="toc-telegram" class="nav-link" data-scroll-target="#telegram">Telegram</a></li>
+  <li><a href="#offrimi-una-birra" id="toc-offrimi-una-birra" class="nav-link" data-scroll-target="#offrimi-una-birra">Offrimi una birra!</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>Mettiamo il caso che abbiamo una lista di linee: come troviamo quella meno lunga?</p>
+<section id="prima-di-iniziare" class="level2">
+<h2 class="anchored" data-anchor-id="prima-di-iniziare">Prima di iniziare</h2>
+<section id="librerie" class="level3">
+<h3 class="anchored" data-anchor-id="librerie">Librerie</h3>
+<p>Per raggiungere l’obiettivo userò <code>shapely</code>, <code>matplotlib</code> e <code>random</code>; queste ultime due le ho usate solo per motivi di rappresentazione grafica dei dati.</p>
+<div class="cell" data-execution_count="1">
+<details>
+<summary>Codice</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely <span class="im">import</span> wkt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="fonti-dati" class="level3">
+<h3 class="anchored" data-anchor-id="fonti-dati">Fonti dati</h3>
+<p>Userò in questo piccolo esercizio quattro linee, ma dobbiamo immaginarci di essere di fronte alla generica situazione in cui abbiamo una lista di <em>N</em> linee e non possiamo di certo metterci a misurarle tutte.</p>
+<div class="cell" data-execution_count="2">
+<details>
+<summary>Codice</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>line_0 <span class="op">=</span> wkt.loads(<span class="st">'LINESTRING (461179.6655721677 4507148.788223281, 461217.56786209624 4507181.537033379, 461236.3280996226 4507194.537878151, 461241.7247760045 4507197.640095252, 461258.8379542616 4507210.660701941, 461261.9432857035 4507219.791508417, 461270.90091201715 4507254.590010401, 461271.56385885156 4507303.918307676, 461273.67536588735 4507318.460376316, 461286.2322009634 4507358.346460313, 461302.55653224624 4507403.197152592, 461365.2492823085 4507485.060388609, 461480.4983426857 4507548.512415529, 461580.7367309019 4507618.493483591)'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>line_1 <span class="op">=</span> wkt.loads(<span class="st">'LINESTRING (461179.6655721677 4507148.788223281, 461217.56786209624 4507181.537033379, 461236.3280996226 4507194.537878151, 461241.7247760045 4507197.640095252, 461258.8379542616 4507210.660701941, 461261.9432857035 4507219.791508417, 461270.90091201715 4507254.590010401, 461271.56385885156 4507303.918307676, 461273.67536588735 4507318.460376316, 461286.2322009634 4507358.346460313, 461302.55653224624 4507403.197152592)'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>line_2 <span class="op">=</span> wkt.loads(<span class="st">'LINESTRING (461179.6655721677 4507148.788223281, 461217.56786209624 4507181.537033379, 461236.3280996226 4507194.537878151, 461241.7247760045 4507197.640095252, 461258.8379542616 4507210.660701941, 461261.9432857035 4507219.791508417, 461270.90091201715 4507254.590010401, 461271.56385885156 4507303.918307676, 461273.67536588735 4507318.460376316, 461286.2322009634 4507358.346460313, 461302.55653224624 4507403.197152592, 461365.2492823085 4507485.060388609)'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>line_3 <span class="op">=</span> wkt.loads(<span class="st">'LINESTRING (461179.6655721677 4507148.788223281, 461217.56786209624 4507181.537033379, 461236.3280996226 4507194.537878151, 461241.7247760045 4507197.640095252, 461258.8379542616 4507210.660701941, 461261.9432857035 4507219.791508417, 461270.90091201715 4507254.590010401, 461271.56385885156 4507303.918307676, 461273.67536588735 4507318.460376316, 461286.2322009634 4507358.346460313, 461302.55653224624 4507403.197152592, 461365.2492823085 4507485.060388609, 461480.4983426857 4507548.512415529)'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>line_list <span class="op">=</span> [line_0, line_1, line_2, line_3]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> position <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(line_list)):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    distance <span class="op">=</span> position <span class="op">*</span> <span class="dv">5</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    color <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span><span class="st">"</span><span class="sc">%06x</span><span class="st">"</span> <span class="op">%</span> random<span class="sc">.</span>randint(<span class="dv">0</span>, <span class="bn">0xFFFFFF</span>)<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    plt.plot(<span class="op">*</span>line_list[position].parallel_offset(distance<span class="op">=</span>distance).xy, label<span class="op">=</span><span class="ss">f'Line </span><span class="sc">{</span>position<span class="sc">}</span><span class="ss">'</span>, color<span class="op">=</span><span class="ss">f'#</span><span class="sc">{</span>color<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="linea-meno-lunga-in-una-lista_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><strong>NB</strong>: ho usato <em><a href="https://shapely.readthedocs.io/en/stable/manual.html#object.parallel_offset">parallel_offset</a></em> solo per motivi grafici. Le linee che ho usato in questo esercizio sono pezzi di una unica linea più lunga che rappresentati sarebbero andati in sovrapposizione nel grafico rendendo impossibile la loro visualizzazione.</p>
+</section>
+</section>
+<section id="misurare" class="level1">
+<h1>Misurare!</h1>
+<p>Se avessimo solo quattro linee in una lista sarebbe abbastanza semplice capire quale è quella meno lunga:</p>
+<div class="cell" data-execution_count="3">
+<details>
+<summary>Codice</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>line_measure <span class="op">=</span> [line_0.length, line_1.length, line_2.length, line_3.length]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>line_measure</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>[656.716578077637, 299.7932485603402, 402.9046946828671, 534.4664886738693]</code></pre>
+</div>
+</div>
+<p>Usando l’attributo <strong><a href="https://shapely.readthedocs.io/en/stable/manual.html#object.length">length</a></strong> risulta abbastanza immediato capire che la linea più breve è quella in posizione 1 che nemmeno a farlo apposta è <code>line_1</code>. Ma vediamo come possiamo risolvere il caso più generico.</p>
+<div class="cell" data-execution_count="4">
+<details>
+<summary>Codice</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>line_list.sort(key<span class="op">=</span><span class="kw">lambda</span> x: x.length, reverse<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>line_list</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>[&lt;shapely.geometry.linestring.LineString at 0x7fe06eebf370&gt;,
+ &lt;shapely.geometry.linestring.LineString at 0x7fe06eebf430&gt;,
+ &lt;shapely.geometry.linestring.LineString at 0x7fe06eebf460&gt;,
+ &lt;shapely.geometry.linestring.LineString at 0x7fe0c0099eb0&gt;]</code></pre>
+</div>
+</div>
+<p>Proprio usando <code>length</code> ho raggiunto lo scopo di questo piccolo articolo. Ho riordinato la lista di linee usando la <strong><a href="https://www.w3schools.com/python/python_lambda.asp">lambda function</a></strong> in accoppiata con l’attributo visto in precedenza.</p>
+<div class="cell" data-execution_count="5">
+<details>
+<summary>Codice</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> position <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(line_list)):</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    distance <span class="op">=</span> position <span class="op">*</span> <span class="dv">5</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    color <span class="op">=</span> <span class="ss">f'</span><span class="sc">{</span><span class="st">"</span><span class="sc">%06x</span><span class="st">"</span> <span class="op">%</span> random<span class="sc">.</span>randint(<span class="dv">0</span>, <span class="bn">0xFFFFFF</span>)<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    plt.plot(<span class="op">*</span>line_list[position].parallel_offset(distance<span class="op">=</span>distance).xy, label<span class="op">=</span><span class="ss">f'Line </span><span class="sc">{</span>position<span class="sc">}</span><span class="ss">'</span>, color<span class="op">=</span><span class="ss">f'#</span><span class="sc">{</span>color<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<p><img src="linea-meno-lunga-in-una-lista_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<details>
+<summary>Codice</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>smallest_line <span class="op">=</span> line_list[<span class="dv">0</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>smallest_line.wkt</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>'LINESTRING (461179.6655721677 4507148.788223281, 461217.56786209624 4507181.537033379, 461236.3280996226 4507194.537878151, 461241.7247760045 4507197.640095252, 461258.8379542616 4507210.660701941, 461261.9432857035 4507219.791508417, 461270.90091201715 4507254.590010401, 461271.56385885156 4507303.918307676, 461273.67536588735 4507318.460376316, 461286.2322009634 4507358.346460313, 461302.55653224624 4507403.197152592)'</code></pre>
+</div>
+</div>
+</section>
+<section id="conclusione" class="level1">
+<h1>Conclusione</h1>
+<p>Ora noi sappiamo che è la linea in posizione 0, della nuova lista riordinata, ad essere quella meno lunga. Se ne conosci altri, o se hai indicazioni da dare per migliorare il post, fallo scrivendo in <a href="https://github.com/MaxDragonheart/PyGIS-Blog/discussions">Discussioni</a>.</p>
+<section id="newsletter" class="level2">
+<h2 class="anchored" data-anchor-id="newsletter">Newsletter</h2>
+<p>Se vuoi ricevere aggiornamenti sui prossimi articoli <a href="https://massimilianomoraca.it/newsletter/">iscriviti alla newsletter</a>!</p>
+</section>
+<section id="telegram" class="level2">
+<h2 class="anchored" data-anchor-id="telegram">Telegram</h2>
+<p>Segui il canale Telegram <strong><a href="https://t.me/caffegis">CaffèGIS - I GIS a supporto dei processi evolutivi territoriali</a></strong> per ricevere aggiornamenti su iniziative ed informazioni a tema GIS.</p>
+</section>
+<section id="offrimi-una-birra" class="level2">
+<h2 class="anchored" data-anchor-id="offrimi-una-birra">Offrimi una birra!</h2>
+<p><strong>Se trovi interessanti i miei articoli <a href="https://www.paypal.com/paypalme/MassimilianoMoraca">offrimi una birra</a>!</strong></p>
+<p>Alla prossima!</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiato!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiato!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/massimilianomoraca">LinkedIn</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://github.com/MaxDragonheart">Github</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://massimilianomoraca.it">Web Site</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">Copyright 2022, Massimiliano Moraca</div>
+  </div>
+</footer>
+
+
+
+</body></html>
