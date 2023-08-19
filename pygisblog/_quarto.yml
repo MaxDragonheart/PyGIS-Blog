@@ -3,48 +3,51 @@ project:
   output-dir: docs
 
 website:
-  title: "PyGIS Blog"
+  title: "PyGIS Blog - Manipolare i dati GIS con Python!"
   site-url: "https://pygisblog.massimilianomoraca.me"
-  description: "Manipolare i dati GIS con Python!"
+  description: "Manipolare i dati GIS con Python! - by Massimiliano Moraca"
   reader-mode: true
   favicon: ./site_logo.png
+  cookie-consent: true
   google-analytics: G-NG119N5L8N
   page-navigation: true
   open-graph:
-    title: "PyGIS Blog"
+    title: "PyGIS Blog by Massimiliano Moraca"
     description: "Manipolare i dati GIS con Python!"
     image: ./project_logo.jpg
+    site-name: "PyGIS Blog by Massimiliano Moraca"
   navbar:
     logo: ./site_logo.png
     pinned: true
     collapsed: true
     right:
-      - about.qmd
       - icon: github
         href: https://github.com/MaxDragonheart
-      - icon: globe2
+      - icon: linkedin
+        href: https://www.linkedin.com/in/massimilianomoraca
+      - icon: telegram
+        href: https://t.me/caffegis
+      - icon: globe
         href: https://massimilianomoraca.me
+      - icon: paypal
+        href: https://www.paypal.com/paypalme/MassimilianoMoraca
       - icon: rss
         href: index.xml
   page-footer:
     right: "Copyright 2022, Massimiliano Moraca"
     left:
       - icon: linkedin
-        text: LinkedIn
         href: https://www.linkedin.com/in/massimilianomoraca
       - icon: github
-        text: Github
         href: https://github.com/MaxDragonheart
       - icon: telegram
-        text: Telegram
         href: https://t.me/caffegis
-      - icon: globe2
-        text: Web Site
+      - icon: globe
         href: https://massimilianomoraca.me
-#    rigth:
-#      - icon: paypal
-#        text: Offrimi una birra!
-#        href: https://www.paypal.com/paypalme/MassimilianoMoraca
+    center:
+      - icon: paypal
+        text: Offrimi una birra!
+        href: https://www.paypal.com/paypalme/MassimilianoMoraca
     border: true
     background: light
   repo-url: https://github.com/MaxDragonheart/PyGIS-Blog
