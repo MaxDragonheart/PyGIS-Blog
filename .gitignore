@@ -5,4 +5,4 @@
 poetry.lock
 
 # Quarto
-pygisblog/docs
+pygisblog/docs/
