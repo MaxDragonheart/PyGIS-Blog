@@ -23,7 +23,7 @@ website:
       - icon: github
         href: https://github.com/MaxDragonheart
       - icon: globe2
-        href: https://massimilianomoraca.it
+        href: https://massimilianomoraca.me
       - icon: rss
         href: index.xml
   page-footer:
@@ -35,9 +35,16 @@ website:
       - icon: github
         text: Github
         href: https://github.com/MaxDragonheart
+      - icon: telegram
+        text: Telegram
+        href: https://t.me/caffegis
       - icon: globe2
         text: Web Site
-        href: https://massimilianomoraca.it
+        href: https://massimilianomoraca.me
+#    rigth:
+#      - icon: paypal
+#        text: Offrimi una birra!
+#        href: https://www.paypal.com/paypalme/MassimilianoMoraca
     border: true
     background: light
   repo-url: https://github.com/MaxDragonheart/PyGIS-Blog

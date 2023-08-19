@@ -13,7 +13,7 @@ about:
       href: https://github.com/MaxDragonheart
     - icon: globe2
       text: Web Site
-      href: https://massimilianomoraca.it
+      href: https://massimilianomoraca.me
 
 ---
 

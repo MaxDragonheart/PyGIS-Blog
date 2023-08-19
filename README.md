@@ -13,6 +13,10 @@ Le future pubblicazioni le trovi [qui](https://github.com/MaxDragonheart/PyGIS-B
 ### Quarto tips
 Documentation [here](https://quarto.org/docs/guide/)
 
+Settings for GitHub pages [here](https://quarto.org/docs/publishing/github-pages.html)
+
+Render: `quarto render`
+
 Preview: `quarto preview`
 
 Publishing: `quarto publish gh-pages`
