@@ -5,19 +5,10 @@ Le analisi in Python pubblicate le trovi [qui](https://pygisblog.massimilianomor
 
 Le future pubblicazioni le trovi [qui](https://github.com/MaxDragonheart/PyGIS-Blog/milestones).
 
-## Quarto download and install
-
-    chmod +x quarto_download_and_install.sh
-    sudo ./quarto_download_and_install.sh
-
-### Quarto tips
+## NB Converter tips
 Documentation [here](https://quarto.org/docs/guide/)
 
-Settings for GitHub pages [here](https://quarto.org/docs/publishing/github-pages.html)
+Convert notebook to html: `jupyter nbconvert --to html notebook.ipynb`
 
-Render: `quarto render`
-
-Preview: `quarto preview`
-
-Publishing: `quarto publish gh-pages`
+It's possible to use `jupyter nbconvert --to html *.ipynb` for convert all notebooks in the folder.
 
