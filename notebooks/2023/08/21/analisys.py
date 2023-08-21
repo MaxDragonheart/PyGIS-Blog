@@ -21,15 +21,19 @@ osm_crs = 4326
 main_folder = Path.cwd().parent.parent.parent.parent.joinpath('sample_data')
 regions = main_folder.joinpath('Reg01012023_g').joinpath('Reg01012023_g_WGS84.shp')
 
+time_start = datetime.datetime.now()
+logging.info(f'Start analysis at {time_start}')
 
 regions_gdf = gpd.read_file(regions).to_crs(osm_crs)
 italia = regions_gdf.dissolve().squeeze()
 
+logging.info("Get data from OSM")
 italia_data = ox.features_from_polygon(
     polygon=italia.geometry,
     tags={'historic': True}
 )
 
+logging.info("Clean")
 italia_data = italia_data[['historic', 'name', 'historic:civilization', 'geometry']]
 italia_data = italia_data[~italia_data['historic'].isin(excluded_keys)]
 italia_data = italia_data[italia_data['name'].notna()]
@@ -45,15 +49,13 @@ italia_final = gpd.GeoDataFrame(italia_final, geometry='geometry')
 output_file = Path.cwd().joinpath('archeological_site.gpkg')
 italia_final.to_file('archeological_site.gpkg', driver='GPKG', layer='italy')
 
+time_end = datetime.datetime.now()
+time_diff = time_end - time_start
+logging.info(f'End analysis at {time_end}')
+logging.info(f'Process time: {time_diff}')
 
 if __name__ == '__main__':
-    time_start = datetime.datetime.now()
-    logging.info(f'Start analysis at {time_start}')
 
     logging.info(f"Total sites: {len(italia_final.index)}")
     logging.info(f"Saved to {str(output_file)}")
 
-    time_end = datetime.datetime.now()
-    time_diff = time_end - time_start
-    logging.info(f'End analysis at {time_end}')
-    logging.info(f'Process time: {time_diff}')
