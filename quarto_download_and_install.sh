@@ -21,4 +21,3 @@ dpkg -i "quarto/quarto-${version}-linux-amd64.deb"
 
 # Remove download folder
 rm -rf quarto
-
