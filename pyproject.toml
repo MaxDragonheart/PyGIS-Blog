@@ -19,6 +19,7 @@ matplotlib = "^3.8.3"
 nbconvert = "^7.16.2"
 osmnx = "^1.9.1"
 geocube = "^0.5.2"
+netcdf4 = "^1.6.5"
 
 [build-system]
 requires = ["poetry-core"]
