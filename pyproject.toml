@@ -1,24 +1,26 @@
 [tool.poetry]
 name = "pygis-blog"
-version = "0.2.0"
+version = "0.3.0"
 description = "\"Manipolare i dati GIS con Python!\""
 authors = ["Massimiliano Moraca <info@massimilianomoraca.it>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-geopandas = "^0.14.1"
-rioxarray = "^0.15.0"
+geopandas = "^0.14.3"
+rioxarray = "^0.15.1"
 xarray-spatial = "^0.3.7"
-contextily = "^1.4.0"
-rtree = "^1.1.0"
+contextily = "^1.5.2"
+rtree = "^1.2.0"
 openpyxl = "^3.1.2"
 jupyter = "^1.0.0"
-folium = "^0.15.0"
-matplotlib = "^3.8.2"
-nbconvert = "^7.11.0"
-osmnx = "^1.7.1"
-
+folium = "^0.16.0"
+matplotlib = "^3.8.3"
+nbconvert = "^7.16.2"
+osmnx = "^1.9.1"
+geocube = "^0.5.2"
+netcdf4 = "^1.6.5"
+seaborn = "^0.13.2"
 
 [build-system]
 requires = ["poetry-core"]
