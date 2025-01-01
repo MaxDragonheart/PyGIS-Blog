@@ -3,7 +3,7 @@
 ##### CHECK url before start!
 # https://quarto.org/docs/get-started/
 
-version="1.3.450"
+version="1.6.39"
 url="https://github.com/quarto-dev/quarto-cli/releases/download/v${version}/quarto-${version}-linux-amd64.deb"
 
 echo "--> Download Quarto v${version}"
